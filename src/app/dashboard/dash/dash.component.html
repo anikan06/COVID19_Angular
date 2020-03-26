@@ -1,0 +1,172 @@
+<div class="container-fluid dashboard-container w-100">
+  <div class="row mx-auto w-100 my-2">
+    <div class="col-8">
+      <span class="hTxt">INDIA COVID-19 TRACKER</span>
+    </div>
+    <div class="col-4 py-3">
+      <span class="luD"> Last reported at {{lastUpdatedTime}}</span>
+    </div>
+  </div>
+
+  <div class="row mx-auto w-100 my-2">
+    <div class="col">
+      <div class="card text-center w-100">
+        <div class="card-header bg-info border-0">
+          <span class="cdHd">
+            Confirmed
+          </span>
+        </div>
+        <div class="card-body bg-info p-1">
+          <span class="cdBdC">
+            {{totalConfirmed}}
+          </span>
+        </div>
+        <div class="card-footer bg-info p-1">
+          <div class="row mx-auto d-flex justify-content-center">
+            <span class="ftTxt">
+              Today's Confirmed
+            </span>
+          </div>
+          <div class="row mx-auto d-flex justify-content-center">
+            <span class="cdBdC-f">
+              +{{todayConfirm}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-center w-100">
+        <div class="card-header bg-warning border-0">
+          <span class="cdHd">
+            Active
+          </span>
+        </div>
+        <div class="card-body bg-warning p-1">
+          <span class="cdBdA">
+            {{totalActive}}
+          </span>
+        </div>
+        <div class="card-footer text-center bg-warning p-1">
+          <div class="row mx-auto d-flex justify-content-center">
+            <span class="ftTxt">
+              Today's Active
+            </span>
+          </div>
+          <div class="row mx-auto d-flex justify-content-center">
+            <span class="cdBdC-f">
+              +{{todayActive}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-center w-100">
+        <div class="card-header bg-success border-0">
+          <span class="cdHd">
+            Recovered
+          </span>
+        </div>
+        <div class="card-body bg-success p-1">
+          <span class="cdBdR">
+            {{totalRecovered}}
+          </span>
+        </div>
+        <div class="card-footer text-center bg-success p-1">
+          <div class="row mx-auto d-flex justify-content-center">
+            <span class="ftTxt">
+              Today's Recovered
+            </span>
+          </div>
+          <div class="row mx-auto d-flex justify-content-center">
+            <span class="cdBdC-f">
+              +{{todayRecover}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card  text-center w-100">
+        <div class="card-header bg-danger border-0">
+          <span class="cdHd">
+            Death
+          </span>
+        </div>
+        <div class="card-body bg-danger p-1">
+          <span class="cdBdD">
+            {{totalDeath}}
+          </span>
+        </div>
+        <div class="card-footer text-center bg-danger p-1">
+          <div class="row mx-auto d-flex justify-content-center">
+            <span class="ftTxt">
+              Today's Death
+            </span>
+          </div>
+          <div class="row mx-auto d-flex justify-content-center">
+            <span class="cdBdC-f">
+              +{{todayDeath}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mx-auto w-100">
+    <table class="table w-100">
+      <thead>
+        <tr>
+          <th scope="col">State</th>
+          <th scope="col">Confirmed</th>
+          <th scope="col">Recoverd</th>
+          <th scope="col">Active</th>
+          <th scope="col">Death</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let statedata of dataArray; let i of index' [ngClass]="{'totalCount': statedata.state === 'Total'}">
+          <td>
+            <span [ngClass]="{'totalCount': statedata.state === 'Total'}">{{statedata.state}}</span>
+          </td>
+          <td>
+            <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+              {{statedata.confirmed}}
+              <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.confirmed > 0'>
+                {{statedata.delta.confirmed}}
+              </i>
+            </span>
+          </td>
+          <td>
+            <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+              {{statedata.recovered}}
+              <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.recovered > 0'>
+                {{statedata.delta.recovered}}
+              </i>
+            </span>
+          </td>
+          <td>
+            <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+              {{statedata.active}}
+              <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.active > 0'>
+                {{statedata.delta.active}}
+              </i>
+
+            </span>
+          </td>
+          <td>
+            <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+              {{statedata.deaths}}
+              <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.deaths > 0'>
+                {{statedata.delta.deaths}}
+              </i>
+
+            </span>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
