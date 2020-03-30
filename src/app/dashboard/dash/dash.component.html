@@ -123,18 +123,18 @@
       </div>
       <div class="card-body">
         <div class="row mx-auto">
-          <div class="col-2 d-flex justify-content-center border-right">
+          <div class="col-12 col-md-2 d-flex justify-content-center border-right-md border-bottom p-2 p-md-2">
             <img src="./assets/images/male.png" class="img-fluid img100" *ngIf="latgender === 'male'">
             <img src="./assets/images/female.png" class="img-fluid img100" *ngIf="latgender === 'female'">
             <img src="src/assets/images/trans.png" class="img-fluid img100" *ngIf="latgender === 'others'">
           </div>
           <div class="col-10">
             <div class="row mx-auto  py-1">
-              <div class="col-3">
+              <div class="col-12 col-md-3">
                 <span class="label">Patient ID:</span>
                 <span class="resp"> {{latpatientId}} </span>
               </div>
-              <div class="col-3">
+              <div class="col-12 col-md-3">
                 <span class="label">Reported On:</span>
                 <span class="resp"> {{latReportedOn}} </span>
               </div>
@@ -144,11 +144,11 @@
               </div>
             </div>
             <div class="row mx-auto py-1">
-              <div class="col-3">
+              <div class="col-12 col-md-3">
                 <span class="label">Age:</span>
                 <span class="resp"> {{latageEstimate}} </span>
               </div>
-              <div class="col-3">
+              <div class="col-12 col-md-3">
                 <span class="label">Gender:</span>
                 <span class="resp"> {{latgender}} </span>
               </div>
@@ -158,11 +158,11 @@
               </div>
             </div>
             <div class="row mx-auto py-1">
-              <div class="col-3">
+              <div class="col-12 col-md-3">
                 <span class="label">City:</span>
                 <span class="resp"> {{latcity}} </span>
               </div>
-              <div class="col-3">
+              <div class="col-12 col-md-3">
                 <span class="label">District:</span>
                 <span class="resp"> {{latdistrict}} </span>
               </div>
