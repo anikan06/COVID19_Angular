@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import * as _ from 'lodash';
 import { StateDetails } from 'src/app/shared/state.model';
 import { DistrictDetails } from 'src/app/shared/district.model';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -32,10 +34,13 @@ export class ClusterComponentComponent implements OnInit {
 
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.getAllList();
     this.getStateList();
 
@@ -45,7 +50,6 @@ export class ClusterComponentComponent implements OnInit {
 
   getStateList() {
     this.http.get(this.baseStateURL).subscribe(res => {
-      // console.log(res);
       this.allStateData = res;
       _.map(this.allStateData, (value, key) => {
         const stateObject = new StateDetails();
@@ -60,7 +64,6 @@ export class ClusterComponentComponent implements OnInit {
     this.http.get(this.allListURL).subscribe(res => {
       this.allData = res;
       this.dataArray = this.allData.statewise;
-      console.log(this.dataArray);
       this.todaysData = this.allData.key_values;
 
       if (this.allData !== null && this.allData !== undefined) {
@@ -76,6 +79,7 @@ export class ClusterComponentComponent implements OnInit {
         this.todayDeath = this.allData.key_values[0].deceaseddelta;
       }
     });
+    this.spinner.hide();
   }
 
   private _decryptStateDetails(stateData: any): Array<DistrictDetails> {
@@ -96,7 +100,6 @@ export class ClusterComponentComponent implements OnInit {
 
   getTempList() {
     this.http.get('https://api.rootnet.in/covid19-in/unofficial/covid19india.org').subscribe(res => {
-      console.log(res);
     });
   }
 }

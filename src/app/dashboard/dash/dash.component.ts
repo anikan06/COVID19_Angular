@@ -135,7 +135,6 @@ export class DashComponent implements OnInit {
 
       this.toastr.success('Fetched Data Successfully');
       this.allData = res;
-      console.log(res);
       this.dataArray = this.allData.statewise;
 
       this.todaysData = this.allData.key_values;
@@ -163,7 +162,6 @@ export class DashComponent implements OnInit {
       const rawData = res.data.rawPatientData;
       if (rawData !== null && rawData !== undefined) {
         this.resData = _.last(rawData);
-        console.log(this.resData);
         this.latpatientId = this.resData.patientId;
         this.latReportedOn = this.resData.reportedOn;
         this.latonsetEstimate = this.resData.onsetEstimate;
