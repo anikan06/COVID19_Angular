@@ -174,7 +174,11 @@ export class DashComponent implements OnInit {
         } else {
           this.latgender = 'N/A';
         }
-
+        if (this.resData.ageEstimate !== '') {
+          this.latageEstimate = this.resData.ageEstimate;
+        } else {
+          this.latageEstimate = 'N/A';
+        }
         if (this.resData.district !== '') {
           this.latdistrict = this.resData.district;
         } else {
@@ -200,19 +204,31 @@ export class DashComponent implements OnInit {
         } else {
           this.latstatus = 'N/A';
         }
+        if (this.resData.city !== '') {
+          this.latcity = this.resData.city;
+        } else {
+          this.latcity = 'N/A';
+        }
         if (this.resData.notes !== '') {
           this.latnotes = this.resData.notes;
         } else {
           this.latnotes = 'Awaiting response';
         }
-        this.latcontractedFrom = this.resData.contractedFrom;
+        if (this.resData.contractedFrom !== '') {
+          this.latcontractedFrom = this.resData.contractedFrom;
+        } else {
+          this.latcontractedFrom = 'N/A';
+        }
+
         if (this.resData.travel) {
           if (this.resData.travel < 0) {
             this.lattravel = this.resData.travel[0];
+          } else {
+            this.lattravel = 'N/A';
           }
         } else {
           this.lattravel = 'Not Available';
-        }
+        } 
 
 
       }
