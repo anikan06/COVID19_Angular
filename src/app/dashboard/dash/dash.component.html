@@ -1,5 +1,5 @@
-<div class="container-fluid dashboard-container w-100">
-  <div class="row mx-auto w-100 my-2">
+<div class="container-fluid dash-container w-100">
+  <div class="row mx-auto w-100 my-3">
     <div class="col-8">
       <span class="hTxt">INDIA COVID-19 TRACKER</span>
     </div>
@@ -114,59 +114,143 @@
       </div>
     </div>
   </div>
-  <div class="row mx-auto w-100">
-    <table class="table w-100">
-      <thead>
-        <tr>
-          <th scope="col">State</th>
-          <th scope="col">Confirmed</th>
-          <th scope="col">Recoverd</th>
-          <th scope="col">Active</th>
-          <th scope="col">Death</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor='let statedata of dataArray; let i of index' [ngClass]="{'totalCount': statedata.state === 'Total'}">
-          <td>
-            <span [ngClass]="{'totalCount': statedata.state === 'Total'}">{{statedata.state}}</span>
-          </td>
-          <td>
-            <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
-              {{statedata.confirmed}}
-              <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.confirmed > 0'>
-                {{statedata.delta.confirmed}}
-              </i>
-            </span>
-          </td>
-          <td>
-            <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
-              {{statedata.recovered}}
-              <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.recovered > 0'>
-                {{statedata.delta.recovered}}
-              </i>
-            </span>
-          </td>
-          <td>
-            <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
-              {{statedata.active}}
-              <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.active > 0'>
-                {{statedata.delta.active}}
-              </i>
 
-            </span>
-          </td>
-          <td>
-            <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
-              {{statedata.deaths}}
-              <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.deaths > 0'>
-                {{statedata.delta.deaths}}
-              </i>
+  <div class="row mx-auto w-100 my-2">
+    <div class="card w-100">
+      <div class="card-header">
+        Last Patient Reported at {{resData.state}} - (Patient ID: {{resData.patientId}})
+      </div>
+      <div class="card-body">
+        <div class="row mx-auto">
+          <div class="col-2 d-flex justify-content-center border-right">
+            <img src="./assets/images/male.png" class="img-fluid img100" *ngIf = "resData.gender === 'male'">
+            <img src="./assets/images/female.png" class="img-fluid img100" *ngIf = "resData.gender === 'female'">
+            <img src="src/assets/images/trans.png" class="img-fluid img100" *ngIf = "resData.gender === 'others'">
+          </div>
+          <div class="col-10">
+            <div class="row mx-auto  py-1">
+              <div class="col-3">
+                <span class="label">Patient ID:</span>
+                <span class="resp"> {{resData.patientId}} </span>
+              </div>
+              <div class="col-3">
+                <span class="label">Reported On:</span>
+                <span class="resp"> {{resData.reportedOn}} </span>
+              </div>
+              <div class="col">
+                <span class="label">Status:</span>
+                <span class="resp"> {{resData.status}} </span>
+              </div>
+            </div>
+            <div class="row mx-auto py-1">
+              <div class="col-3">
+                <span class="label">Age:</span>
+                <span class="resp"> {{resData.ageEstimate}} </span>
+              </div>
+              <div class="col-3">
+                <span class="label">Gender:</span>
+                <span class="resp"> {{resData.gender}} </span>
+              </div>
+              <div class="col">
+                <span class="label">Source:</span>
+                <a href="{{resData.sources[0]}}" target="_blank" class="resp"> {{resData.sources[0]}} </a>
+              </div>
+            </div>
+            <div class="row mx-auto py-1">
+              <div class="col-3">
+                <span class="label">City:</span>
+                <span class="resp"> {{resData.city}} </span>
+              </div>
+              <div class="col-3">
+                <span class="label">District:</span>
+                <span class="resp"> {{resData.district}} </span>
+              </div>
+              <div class="col">
+                <span class="label">State:</span>
+                <span class="resp"> {{resData.state}} </span>
+              </div>
+            </div>
+            <div class="row mx-auto py-1">
+              <div class="col">
+                  <span class="label">Contracted From:</span>
+                  <span class="resp"> {{resData.contractedFrom}} </span>
+              </div>
+            </div>
+            <div class="row mx-auto py-1">
+              <div class="col">
+                  <span class="label">Notes:</span>
+                  <span class="resp"> {{resData.notes}} </span>
+              </div>
+            </div>
 
-            </span>
-          </td>
-        </tr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      </tbody>
-    </table>
+  <div class="row mx-auto w-100 my-2">
+   <div class="card w-100">
+     <div class="card-header">
+        State wise Data 
+     </div>
+     <div class="card-body p-0">
+      <table class="table table-striped table-light w-100">
+        <thead>
+          <tr>
+            <th scope="col">State</th>
+            <th scope="col">Confirmed</th>
+            <th scope="col">Recoverd</th>
+            <th scope="col">Active</th>
+            <th scope="col">Death</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let statedata of dataArray; let i=index' [ngClass]="{'totalCount': statedata.state === 'Total'}">
+            <td>
+              <span [ngClass]="{'totalCount': statedata.state === 'Total'}">{{statedata.state}}</span>
+            </td>
+            <td>
+              <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+                {{statedata.confirmed}}
+                <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.confirmed > 0'>
+                  {{statedata.delta.confirmed}}
+                </i>
+              </span>
+            </td>
+            <td>
+              <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+                {{statedata.recovered}}
+                <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.recovered > 0'>
+                  {{statedata.delta.recovered}}
+                </i>
+              </span>
+            </td>
+            <td>
+              <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+                {{statedata.active}}
+                <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.active > 0'>
+                  {{statedata.delta.active}}
+                </i>
+  
+              </span>
+            </td>
+            <td>
+              <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+                {{statedata.deaths}}
+                <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.deaths > 0'>
+                  {{statedata.delta.deaths}}
+                </i>
+  
+              </span>
+            </td>
+          </tr>
+  
+        </tbody>
+      </table>
+     </div>
+   </div>
   </div>
 </div>
+
+<!-- <canvas id="myChart" width="700" height="250" #mychart></canvas> -->

@@ -1,0 +1,171 @@
+<div class="container-fluid cluster-container w-100">
+    <div class="row mx-auto w-100 my-2">
+        <div class="col-8">
+            <span class="hTxt">INDIA COVID-19 TRACKER - District Wise</span>
+        </div>
+        <div class="col-4 py-3">
+            <span class="luD"> Last reported at {{lastUpdatedTime}}</span>
+        </div>
+    </div>
+
+    <div class="row mx-auto w-100 my-2">
+        <div class="col">
+            <div class="card text-center w-100">
+                <div class="card-header bg-info border-0">
+                    <span class="cdHd">
+                        Confirmed
+                    </span>
+                </div>
+                <div class="card-body bg-info p-1">
+                    <span class="cdBdC">
+                        {{totalConfirmed}}
+                    </span>
+                </div>
+                <div class="card-footer bg-info p-1">
+                    <div class="row mx-auto d-flex justify-content-center">
+                        <span class="ftTxt">
+                            Today's Confirmed
+                        </span>
+                    </div>
+                    <div class="row mx-auto d-flex justify-content-center">
+                        <span class="cdBdC-f">
+                            +{{todayConfirm}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center w-100">
+                <div class="card-header bg-warning border-0">
+                    <span class="cdHd">
+                        Active
+                    </span>
+                </div>
+                <div class="card-body bg-warning p-1">
+                    <span class="cdBdA">
+                        {{totalActive}}
+                    </span>
+                </div>
+                <div class="card-footer text-center bg-warning p-1">
+                    <div class="row mx-auto d-flex justify-content-center">
+                        <span class="ftTxt">
+                            Today's Active
+                        </span>
+                    </div>
+                    <div class="row mx-auto d-flex justify-content-center">
+                        <span class="cdBdC-f">
+                            +{{todayActive}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center w-100">
+                <div class="card-header bg-success border-0">
+                    <span class="cdHd">
+                        Recovered
+                    </span>
+                </div>
+                <div class="card-body bg-success p-1">
+                    <span class="cdBdR">
+                        {{totalRecovered}}
+                    </span>
+                </div>
+                <div class="card-footer text-center bg-success p-1">
+                    <div class="row mx-auto d-flex justify-content-center">
+                        <span class="ftTxt">
+                            Today's Recovered
+                        </span>
+                    </div>
+                    <div class="row mx-auto d-flex justify-content-center">
+                        <span class="cdBdC-f">
+                            +{{todayRecover}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card  text-center w-100">
+                <div class="card-header bg-danger border-0">
+                    <span class="cdHd">
+                        Death
+                    </span>
+                </div>
+                <div class="card-body bg-danger p-1">
+                    <span class="cdBdD">
+                        {{totalDeath}}
+                    </span>
+                </div>
+                <div class="card-footer text-center bg-danger p-1">
+                    <div class="row mx-auto d-flex justify-content-center">
+                        <span class="ftTxt">
+                            Today's Death
+                        </span>
+                    </div>
+                    <div class="row mx-auto d-flex justify-content-center">
+                        <span class="cdBdC-f">
+                            +{{todayDeath}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mx-auto w-100 my-2">
+        <div class="col-6 col-md-3 py-3" *ngFor="let stateWise of stateDetailedList;let i=index">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    {{stateWise.name}}
+                </div>
+                <div class="card-body crdHt p-0">
+                    <table class="table table-striped w-100">
+                        <thead>
+                            <tr>
+                                <th scope="col">District</th>
+                                <th scope="col">Confirmed</th>
+                                <!-- <th scope="col">Recovered</th>
+                                <th scope="col">Active</th>
+                                <th scope="col">Deaths</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor='let disData of stateWise.details'>
+                                <td>
+                                    <span>
+                                        {{disData.name}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{disData.details.confirmed}}
+                                    </span>
+                                </td>
+                                <!-- <td>
+                                    <span>
+                                        {{disData.details.recovered}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{disData.details.active}}
+
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{disData.details.deaths}}
+                                    </span>
+                                </td> -->
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

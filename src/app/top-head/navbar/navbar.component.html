@@ -1,35 +1,47 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">COVID-19 INDIA</a>
+    <div class="row mx-auto navStyle w-100">
+      <div class="col-1 d-flex justify-content-center pr-0">
+          <img class="img-fluid nav-img" src="./assets/images/corona.png"> 
+      </div>
+      <div class="col-3 px-0 py-2">
+          <span class="text-nav"> COVID-19 INDIA</span>
+      </div>
+      <div class="col d-flex justify-content-end">
+          <ul class="navbar-nav d-flex justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link" routerLink='Dashboard' routerLinkActive ="act">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="Clusters" routerLinkActive = "act">Cluster</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="Help/Helpfull-Links" routerLinkActive = "act">Useful Link's</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="Help/FAQ" routerLinkActive = "act">FAQ's</a>
+              </li>
+               </ul>
+      </div>
+    </div>
+    <!-- <a class="navbar-brand fntNav" href="#">
+      <img class="img-fluid nav-img" src="./assets/images/corona.png"> 
+      <span class="text-nav"> COVID-19 INDIA</span>
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink='Dashboard'>Dashboard <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='Dashboard' routerLinkActive ="act">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="Clusters">Cluster</a>
-        </li>
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+          <a class="nav-link" routerLink="Clusters" routerLinkActive = "act">Cluster</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li> -->
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
+          <a class="nav-link" routerLink="Help" routerLinkActive = "act">Usefull Link's</a>
+        </li>
+         </ul>
+    </div> -->
   </nav>

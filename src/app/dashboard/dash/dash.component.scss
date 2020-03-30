@@ -1,55 +1,21 @@
-.totalCount {
-    color: red !important;
-    font-size: 14px;
-    font-weight: 700;
-    display: none;
-}
+.dash-container {
+    .label {
+        font-size     : 1em;
+        font-weight   : 600;
+        margin-right  : 8px;
+        color         : #495057;
+        text-transform: capitalize;
+    }
 
-.cdHd {
-    color: #ffffff;
-    font-size: 1.2em;
-    font-weight: 600;
-}
+    .resp {
+        font-size     : .95em;
+        font-weight   : 600;
+        text-transform: capitalize;
+        color         : #117a8b;
+    }
 
-.cdBdC {
-    color: #ffffff;
-    font-size: 2em;
-    font-weight: 600;
-}
-.cdBdA {
-    color: #ffffff;
-    font-size: 2em;
-    font-weight: 600;
-}
-.cdBdR {
-    color: #ffffff;
-    font-size: 2em;
-    font-weight: 600;
-}
-.cdBdD {
-    color: #ffffff;
-    font-size: 2em;
-    font-weight: 600;
-}
-
-.hTxt {
-    font-size: 2em;
-    font-weight: 600;
-    color: #212529;
-}
-
-.luD {
-    color: #212529;
-}
-
-.cdBdC-f {
-    color: #ffffff;
-    font-size: 1em;
-    font-weight: 600;
-}
-
-.fntSm {
-    color: red;
-    font-size: 12px;
-    
+    .img100 {
+        width: 100px;
+        height: 100px;
+    }
 }

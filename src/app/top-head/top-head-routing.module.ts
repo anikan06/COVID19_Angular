@@ -20,6 +20,10 @@ const routes: Routes = [
       {
         path: 'Clusters',
         loadChildren: 'src/app/cluster/cluster.module#ClusterModule'
+      },
+      {
+        path: 'Help',
+        loadChildren: 'src/app/help/help.module#HelpModule'
       }
     ]
   }
