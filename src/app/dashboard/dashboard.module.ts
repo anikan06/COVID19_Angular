@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashComponent } from './dash/dash.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    NgxSpinnerModule
   ]
 })
 export class DashboardModule { }

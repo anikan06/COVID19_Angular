@@ -4,6 +4,7 @@ import * as moment from 'moment';
 import { Chart } from 'chart.js';
 import * as _ from 'lodash';
 import { LivePatient } from 'src/app/shared/livePatient.modal';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-dash',
@@ -25,21 +26,39 @@ export class DashComponent implements OnInit {
   todayRecover: string;
   todayActive: any;
   todayDeath: string;
+
+  latpatientId: number;
+  latReportedOn: string;
+  latonsetEstimate: string;
+  latageEstimate: string;
+  latgender: string;
+  latcity: string;
+  latdistrict: string;
+  latstate: string;
+  latstatus: string;
+  latnotes: string;
+  latcontractedFrom: string;
+  lattravel: string;
+
   myBarChart = [];
   canvas: any;
   ctx: any;
 
   @ViewChild('mychart', { static: false }) mychart;
   resData: any;
+  latsource: any;
 
   // now = moment().startOf('hour').fromNow();
 
 
   constructor(
-    private http: HttpClient
-  ) { }
+    private http: HttpClient,
+    private spinner: NgxSpinnerService
+  ) {
+  }
 
   ngOnInit() {
+    this.spinner.show();
     this.getAllList();
   }
   // ngAfterViewInit() {
@@ -109,6 +128,7 @@ export class DashComponent implements OnInit {
 
 
   getAllList() {
+    // this.spinner.show();
     this.http.get(this.allListURL).subscribe(res => {
       this.allData = res;
       this.dataArray = this.allData.statewise;
@@ -128,6 +148,7 @@ export class DashComponent implements OnInit {
         this.todayRecover = this.allData.key_values[0].recovereddelta;
         this.todayDeath = this.allData.key_values[0].deceaseddelta;
       }
+      this.spinner.hide();
     });
   }
 
@@ -136,8 +157,60 @@ export class DashComponent implements OnInit {
       const rawData = res.data.rawPatientData;
       if (rawData !== null && rawData !== undefined) {
         this.resData = _.last(rawData);
-      }
+        console.log(this.resData);
+        this.latpatientId = this.resData.patientId;
+        this.latReportedOn = this.resData.reportedOn;
+        this.latonsetEstimate = this.resData.onsetEstimate;
+        this.latageEstimate = this.resData.ageEstimate;
 
+        if (this.resData.gender !== '') {
+          this.latgender = this.resData.gender;
+        } else {
+          this.latgender = 'N/A';
+        }
+
+        if (this.resData.district !== '') {
+          this.latdistrict = this.resData.district;
+        } else {
+          this.latdistrict = 'N/A';
+        }
+
+
+        if (this.resData.sources) {
+          if (this.resData.sources < 0) {
+            this.latsource = this.resData.sources[0];
+          }
+        } else {
+          this.latsource = 'Not Known';
+        }
+
+        if (this.resData.state !== '') {
+          this.latstate = this.resData.state;
+        } else {
+          this.latstate = 'N/A';
+        }
+        if (this.resData.status !== '') {
+          this.latstatus = this.resData.status;
+        } else {
+          this.latstatus = 'N/A';
+        }
+        if (this.resData.notes !== '') {
+          this.latnotes = this.resData.notes;
+        } else {
+          this.latnotes = 'Awaiting response';
+        }
+        this.latcontractedFrom = this.resData.contractedFrom;
+        if (this.resData.travel) {
+          if (this.resData.travel < 0) {
+            this.lattravel = this.resData.travel[0];
+          }
+        } else {
+          this.lattravel = 'Not Available';
+        }
+
+
+      }
+      this.spinner.hide();
     });
   }
 

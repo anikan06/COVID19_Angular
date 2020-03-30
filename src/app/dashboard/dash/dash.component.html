@@ -1,4 +1,5 @@
 <div class="container-fluid dash-container w-100">
+  <ngx-spinner></ngx-spinner>
   <div class="row mx-auto w-100 my-3">
     <div class="col-8">
       <span class="hTxt">INDIA COVID-19 TRACKER</span>
@@ -118,68 +119,74 @@
   <div class="row mx-auto w-100 my-2">
     <div class="card w-100">
       <div class="card-header">
-        Last Patient Reported at {{resData.state}} - (Patient ID: {{resData.patientId}})
+        Last Patient Reported at {{latstate}} - (Patient ID: {{latpatientId}})
       </div>
       <div class="card-body">
         <div class="row mx-auto">
           <div class="col-2 d-flex justify-content-center border-right">
-            <img src="./assets/images/male.png" class="img-fluid img100" *ngIf = "resData.gender === 'male'">
-            <img src="./assets/images/female.png" class="img-fluid img100" *ngIf = "resData.gender === 'female'">
-            <img src="src/assets/images/trans.png" class="img-fluid img100" *ngIf = "resData.gender === 'others'">
+            <img src="./assets/images/male.png" class="img-fluid img100" *ngIf="latgender === 'male'">
+            <img src="./assets/images/female.png" class="img-fluid img100" *ngIf="latgender === 'female'">
+            <img src="src/assets/images/trans.png" class="img-fluid img100" *ngIf="latgender === 'others'">
           </div>
           <div class="col-10">
             <div class="row mx-auto  py-1">
               <div class="col-3">
                 <span class="label">Patient ID:</span>
-                <span class="resp"> {{resData.patientId}} </span>
+                <span class="resp"> {{latpatientId}} </span>
               </div>
               <div class="col-3">
                 <span class="label">Reported On:</span>
-                <span class="resp"> {{resData.reportedOn}} </span>
+                <span class="resp"> {{latReportedOn}} </span>
               </div>
               <div class="col">
                 <span class="label">Status:</span>
-                <span class="resp"> {{resData.status}} </span>
+                <span class="resp"> {{latstatus}} </span>
               </div>
             </div>
             <div class="row mx-auto py-1">
               <div class="col-3">
                 <span class="label">Age:</span>
-                <span class="resp"> {{resData.ageEstimate}} </span>
+                <span class="resp"> {{latageEstimate}} </span>
               </div>
               <div class="col-3">
                 <span class="label">Gender:</span>
-                <span class="resp"> {{resData.gender}} </span>
+                <span class="resp"> {{latgender}} </span>
               </div>
               <div class="col">
                 <span class="label">Source:</span>
-                <a href="{{resData.sources[0]}}" target="_blank" class="resp"> {{resData.sources[0]}} </a>
+                <a href="{{latsource}}" target="_blank" class="resp"> {{latsource}} </a>
               </div>
             </div>
             <div class="row mx-auto py-1">
               <div class="col-3">
                 <span class="label">City:</span>
-                <span class="resp"> {{resData.city}} </span>
+                <span class="resp"> {{latcity}} </span>
               </div>
               <div class="col-3">
                 <span class="label">District:</span>
-                <span class="resp"> {{resData.district}} </span>
+                <span class="resp"> {{latdistrict}} </span>
               </div>
               <div class="col">
                 <span class="label">State:</span>
-                <span class="resp"> {{resData.state}} </span>
+                <span class="resp"> {{latstate}} </span>
               </div>
             </div>
             <div class="row mx-auto py-1">
               <div class="col">
-                  <span class="label">Contracted From:</span>
-                  <span class="resp"> {{resData.contractedFrom}} </span>
+                <span class="label">Contracted From:</span>
+                <span class="resp"> {{latcontractedFrom}} </span>
               </div>
             </div>
             <div class="row mx-auto py-1">
               <div class="col">
-                  <span class="label">Notes:</span>
-                  <span class="resp"> {{resData.notes}} </span>
+                <span class="label">Notes:</span>
+                <span class="resp"> {{latnotes}} </span>
+              </div>
+            </div>
+            <div class="row mx-auto py-1">
+              <div class="col">
+                <span class="label">Travel History:</span>
+                <span class="resp"> {{lattravel}} </span>
               </div>
             </div>
 
@@ -190,66 +197,78 @@
   </div>
 
   <div class="row mx-auto w-100 my-2">
-   <div class="card w-100">
-     <div class="card-header">
-        State wise Data 
-     </div>
-     <div class="card-body p-0">
-      <table class="table table-striped table-light w-100">
-        <thead>
-          <tr>
-            <th scope="col">State</th>
-            <th scope="col">Confirmed</th>
-            <th scope="col">Recoverd</th>
-            <th scope="col">Active</th>
-            <th scope="col">Death</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor='let statedata of dataArray; let i=index' [ngClass]="{'totalCount': statedata.state === 'Total'}">
-            <td>
-              <span [ngClass]="{'totalCount': statedata.state === 'Total'}">{{statedata.state}}</span>
-            </td>
-            <td>
-              <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
-                {{statedata.confirmed}}
-                <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.confirmed > 0'>
-                  {{statedata.delta.confirmed}}
-                </i>
-              </span>
-            </td>
-            <td>
-              <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
-                {{statedata.recovered}}
-                <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.recovered > 0'>
-                  {{statedata.delta.recovered}}
-                </i>
-              </span>
-            </td>
-            <td>
-              <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
-                {{statedata.active}}
-                <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.active > 0'>
-                  {{statedata.delta.active}}
-                </i>
-  
-              </span>
-            </td>
-            <td>
-              <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
-                {{statedata.deaths}}
-                <i class="fa fa-arrow-up fntSm" *ngIf='statedata.delta.deaths > 0'>
-                  {{statedata.delta.deaths}}
-                </i>
-  
-              </span>
-            </td>
-          </tr>
-  
-        </tbody>
-      </table>
-     </div>
-   </div>
+    <div class="card w-100">
+      <div class="card-header">
+        State wise Data
+      </div>
+      <div class="card-body p-0">
+        <table class="table table-striped table-light w-100">
+          <thead>
+            <tr>
+              <th scope="col">State</th>
+              <th scope="col">Confirmed</th>
+              <th scope="col">Recoverd</th>
+              <th scope="col">Active</th>
+              <th scope="col">Death</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let statedata of dataArray; let i=index'
+              [ngClass]="{'totalCount': statedata.state === 'Total'}">
+              <td>
+                <span [ngClass]="{'totalCount': statedata.state === 'Total'}">{{statedata.state}}</span>
+              </td>
+              <td>
+                <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+                  {{statedata.confirmed}}
+                  <span class="badge badge-info">
+                    <i class="fa fa-arrow-up " *ngIf='statedata.delta.confirmed > 0'>
+                      {{statedata.delta.confirmed}} New
+                    </i>
+                  </span>
+
+                </span>
+              </td>
+              <td>
+                <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+                  {{statedata.recovered}}
+                  <span class="badge badge-info">
+                    <i class="fa fa-arrow-up " *ngIf='statedata.delta.recovered > 0'>
+                      {{statedata.delta.recovered}} New
+                    </i>
+                  </span>
+
+                </span>
+              </td>
+              <td>
+                <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+                  {{statedata.active}}
+                  <span class="badge badge-info">
+                    <i class="fa fa-arrow-up " *ngIf='statedata.delta.active > 0'>
+                      {{statedata.delta.active}} New
+                    </i>
+                  </span>
+
+
+                </span>
+              </td>
+              <td>
+                <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+                  {{statedata.deaths}}
+                  <span class="badge badge-info">
+                    <i class="fa fa-arrow-up " *ngIf='statedata.delta.deaths > 0'>
+                      {{statedata.delta.deaths}} New
+                    </i>
+                  </span>
+
+                </span>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 
