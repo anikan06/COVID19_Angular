@@ -135,6 +135,7 @@ export class DashComponent implements OnInit {
 
       this.toastr.success('Fetched Data Successfully');
       this.allData = res;
+      console.log(res);
       this.dataArray = this.allData.statewise;
 
       this.todaysData = this.allData.key_values;
