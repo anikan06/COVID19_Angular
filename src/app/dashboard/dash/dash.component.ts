@@ -5,6 +5,7 @@ import { Chart } from 'chart.js';
 import * as _ from 'lodash';
 import { LivePatient } from 'src/app/shared/livePatient.modal';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dash',
@@ -53,7 +54,8 @@ export class DashComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService
   ) {
   }
 
@@ -130,8 +132,11 @@ export class DashComponent implements OnInit {
   getAllList() {
     // this.spinner.show();
     this.http.get(this.allListURL).subscribe(res => {
+
+      this.toastr.success('Fetched Data Successfully');
       this.allData = res;
       this.dataArray = this.allData.statewise;
+
       this.todaysData = this.allData.key_values;
 
       this.getTempList();
