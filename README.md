@@ -1,3 +1,22 @@
+# API Source
+
+API for COVID-19 stats in India, sourced from The Ministry of Health and Family Welfare and separately from unofficial sources.
+
+# Data	URL
+National time series, statewise stats and test counts	https://api.covid19india.org/data.json
+State-district-wise	https://api.covid19india.org/state_district_wise.json
+Travel history	https://api.covid19india.org/travel_history.json
+Raw data	https://api.covid19india.org/raw_data.json
+
+# FAQ's
+
+Where does this data come from?
+We collect the details from each State press release, official government links such as Ministry of Health and Family Welfare and reputable news channels. Data is then validated by a group of volunteers & published.
+
+What is the objective behind collecting and publishing this data? 
+Documented data helps in research of and understanding COVID-19.
+
+
 # Covid19IN
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
