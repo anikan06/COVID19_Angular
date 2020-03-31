@@ -1,11 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import * as moment from 'moment';
-import { Chart } from 'chart.js';
 import * as _ from 'lodash';
 import { LivePatient } from 'src/app/shared/livePatient.modal';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { DashService } from './dash.service';
 
 @Component({
   selector: 'app-dash',
@@ -34,7 +33,7 @@ export class DashComponent implements OnInit {
   latageEstimate: string;
   latgender: string;
   latcity: string;
-  prevPatient: boolean = false;
+  prevPatient = false;
   latdistrict: string;
   latstate: string;
   latstatus: string;
@@ -52,11 +51,12 @@ export class DashComponent implements OnInit {
   resData: any;
   latsource: any;
   newSortArr = {};
-  prevPatientClicked: boolean = false;
-  nextPatient: boolean = false;
-  nextPatientClicked: boolean = false;
-  clrSrch: boolean = false;
+  prevPatientClicked = false;
+  nextPatient = false;
+  nextPatientClicked = false;
+  clrSrch = false;
   closeAlrt = true;
+  interval;
 
   // now = moment().startOf('hour').fromNow();
 
@@ -64,20 +64,19 @@ export class DashComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private spinner: NgxSpinnerService,
-    private toastr: ToastrService
-  ) {
+    private toastr: ToastrService,
+    private dashService: DashService) {
   }
 
   ngOnInit() {
     this.spinner.show();
     this.getAllList();
+    this.interval = setInterval(() => {
+      this.getTempList();
+    }, 300000);
   }
 
-  sortArrayOfObjects = (arr, key) => {
-    return arr.sort((a, b) => {
-      return b[key] - a[key];
-    });
-  };
+
 
   getAllList() {
     // this.spinner.show();
@@ -87,7 +86,7 @@ export class DashComponent implements OnInit {
       this.dataArray = this.allData.statewise;
 
       this.todaysData = this.allData.key_values;
-      this.sortArrayOfObjects(this.dataArray, "confirmed");
+      this.dashService.sortArrayOfObjects(this.dataArray, 'confirmed');
       this.getTempList();
 
       if (this.allData !== null && this.allData !== undefined) {
@@ -109,22 +108,22 @@ export class DashComponent implements OnInit {
 
   getTempList() {
     this.http.get<LivePatient>('https://api.rootnet.in/covid19-in/unofficial/covid19india.org').subscribe(res => {
-      if(!this.prevPatientClicked && this.prevPatient)
+      if (!this.prevPatientClicked && this.prevPatient) {
         this.resData = res.data.rawPatientData[res.data.rawPatientData.length - 1];
-      if(!this.prevPatient && !this.nextPatient){
-      const rawData = res.data.rawPatientData;
-      if (rawData !== null && rawData !== undefined) {
-        this.arraySort = rawData;
-
-        this.resData = _.last(rawData);
-
-        console.log(this.resData);
-
-        this.mapping(this.resData);
-
       }
-    }
-      else if(!this.nextPatient){ 
+      if (!this.prevPatient && !this.nextPatient) {
+        const rawData = res.data.rawPatientData;
+        if (rawData !== null && rawData !== undefined) {
+          this.arraySort = rawData;
+
+          this.resData = _.last(rawData);
+
+          console.log(this.resData);
+
+          this.mapping(this.resData);
+
+        }
+      } else if (!this.nextPatient) {
         this.resData = res.data.rawPatientData[this.resData.patientId - 2];
         this.prevPatientClicked = true;
         this.mapping(this.resData);
@@ -218,12 +217,12 @@ export class DashComponent implements OnInit {
     this.mapping(this.resData);
     // console.log(this.resData);
   }
-  prevPat(){
+  prevPat() {
     this.prevPatient = true;
     this.nextPatient = false;
     this.getTempList();
   }
-  nextPat(){
+  nextPat() {
     this.nextPatient = true;
     this.prevPatient = false;
     this.getTempList();
