@@ -222,7 +222,7 @@
               <td>
                 <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
                   {{statedata.confirmed}}
-                  <span class="badge badge-info">
+                  <span class="badge badge-danger">
                     <i class="fa fa-arrow-up " *ngIf='statedata.delta.confirmed > 0'>
                       {{statedata.delta.confirmed}} New
                     </i>
@@ -233,7 +233,7 @@
               <td>
                 <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
                   {{statedata.recovered}}
-                  <span class="badge badge-info">
+                  <span class="badge badge-danger">
                     <i class="fa fa-arrow-up " *ngIf='statedata.delta.recovered > 0'>
                       {{statedata.delta.recovered}} New
                     </i>
@@ -244,7 +244,7 @@
               <td>
                 <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
                   {{statedata.active}}
-                  <span class="badge badge-info">
+                  <span class="badge badge-danger">
                     <i class="fa fa-arrow-up " *ngIf='statedata.delta.active > 0'>
                       {{statedata.delta.active}} New
                     </i>
@@ -256,7 +256,7 @@
               <td>
                 <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
                   {{statedata.deaths}}
-                  <span class="badge badge-info">
+                  <span class="badge badge-danger">
                     <i class="fa fa-arrow-up " *ngIf='statedata.delta.deaths > 0'>
                       {{statedata.delta.deaths}} New
                     </i>

@@ -56,6 +56,14 @@ export class ClusterComponentComponent implements OnInit {
         stateObject.name = key;
         stateObject.details = this._decryptStateDetails(value);
         this.stateDetailedList.push(stateObject);
+
+        // this.stateDetailedList.forEach(element => {
+        //   // console.log(element.details) ;
+        //   element.details.forEach(ele => {
+        //     console.log(ele.name);
+        //     console.log(ele.details);
+        //   })
+        // });
       });
     });
   }
@@ -92,6 +100,7 @@ export class ClusterComponentComponent implements OnInit {
       districtDetails.details.deaths = val.deaths;
       districtDetails.details.recovered = val.recovered;
       districtDetails.details.lastupdatedtime = val.lastupdatedtime;
+      districtDetails.details.delta.confirmed = val.delta.confirmed;
 
       districtArray.push(districtDetails);
     });

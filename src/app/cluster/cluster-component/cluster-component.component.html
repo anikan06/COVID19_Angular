@@ -144,6 +144,11 @@
                                     <span>
                                         {{disData.details.confirmed}}
                                     </span>
+                                    <span class="badge badge-danger">
+                                        <i class="fa fa-arrow-up" *ngIf='disData.details.delta.confirmed > 0'>
+                                          {{disData.details.delta.confirmed}} New
+                                        </i>
+                                      </span>
                                 </td>
                                 <!-- <td>
                                     <span>
