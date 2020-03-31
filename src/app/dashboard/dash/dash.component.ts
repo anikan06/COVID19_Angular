@@ -69,12 +69,11 @@ export class DashComponent implements OnInit {
       return b[key] - a[key];
     });
   };
-  
+
   getAllList() {
     // this.spinner.show();
     this.http.get(this.allListURL).subscribe(res => {
 
-      this.toastr.success('Fetched Data Successfully');
       this.allData = res;
       this.dataArray = this.allData.statewise;
 
@@ -94,6 +93,7 @@ export class DashComponent implements OnInit {
         this.todayRecover = this.allData.key_values[0].recovereddelta;
         this.todayDeath = this.allData.key_values[0].deceaseddelta;
       }
+      this.toastr.success('Fetched Data Successfully as on ' + this.lastUpdatedTime);
       this.spinner.hide();
     });
   }
