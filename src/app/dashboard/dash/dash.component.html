@@ -120,6 +120,7 @@
     <div class="card w-100">
       <div class="card-header">
         Last Patient Reported at {{latstate}} - (Patient ID: {{latpatientId}})
+        <input class="form-control form-control-sm" #searchValue (keyup)="onKeySearch(searchValue.value)">
       </div>
       <div class="card-body p-0">
         <div class="row mx-auto">

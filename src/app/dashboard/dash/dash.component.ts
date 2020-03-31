@@ -175,4 +175,7 @@ export class DashComponent implements OnInit {
     });
   }
 
+  onKeySearch(value: any) {
+    console.log(value);
+  }
 }
