@@ -226,6 +226,7 @@ export class DashComponent implements OnInit {
   nextPat(){
     this.nextPatient = true;
     this.prevPatient = false;
+    this.getTempList();
   }
 
   clearSearch() {
