@@ -57,6 +57,8 @@ export class DashComponent implements OnInit {
   nextPatientClicked: boolean = false;
   clrSrch: boolean = false;
   closeAlrt = true;
+  nextBtnDisabled: boolean = true;
+  prevBtnDisabled: boolean = false;
 
   // now = moment().startOf('hour').fromNow();
 
@@ -127,10 +129,18 @@ export class DashComponent implements OnInit {
       else if(!this.nextPatient){ 
         this.resData = res.data.rawPatientData[this.resData.patientId - 2];
         this.prevPatientClicked = true;
+        if(this.resData.patientId === 1)
+        this.prevBtnDisabled = true;
+        else
+        this.prevBtnDisabled = false;
         this.mapping(this.resData);
       } else {
         this.resData = res.data.rawPatientData[this.resData.patientId];
         this.nextPatientClicked = true;
+        if(this.resData.patientId === res.data.rawPatientData.length)
+        this.nextBtnDisabled = true;
+        else
+        this.nextBtnDisabled = false;
         this.mapping(this.resData);
       }
       this.spinner.hide();
@@ -221,6 +231,7 @@ export class DashComponent implements OnInit {
   prevPat(){
     this.prevPatient = true;
     this.nextPatient = false;
+    this.nextBtnDisabled = false;
     this.getTempList();
   }
   nextPat(){

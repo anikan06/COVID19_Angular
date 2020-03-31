@@ -147,8 +147,8 @@
             </div>
           </div>
         </div>
-        <span><i class="fa fa-chevron-right pull-right" title="Next Patient" (click)="nextPat()"></i></span>
-        <span><i class="fa fa-chevron-left pull-right" title="Previous Patient" (click)="prevPat();"></i></span>
+        <button class="lblTxt btn btn-sm btn-secondary" (click)="prevPat();" [disabled]="prevBtnDisabled"><i class="fa fa-chevron-left mx-1" title="Previous Patient"></i>Prev</button>
+        <button class="lblTxt pull-right btn btn-sm btn-secondary" (click)="nextPat();" [disabled]="nextBtnDisabled"><i class="fa fa-chevron-right pull-right mx-1 algn" title="Next Patient"></i>Next</button>
       </div>
       <div class="card-body p-0">
         <div class="row mx-auto">
