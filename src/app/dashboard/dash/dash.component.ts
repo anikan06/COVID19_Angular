@@ -226,6 +226,8 @@ export class DashComponent implements OnInit {
         this.nextBtnDisabled = false;
         else
         this.nextBtnDisabled = true;
+        if(element.patientId === 1)
+        this.prevBtnDisabled = true;
       }
     });
     this.mapping(this.resData);
