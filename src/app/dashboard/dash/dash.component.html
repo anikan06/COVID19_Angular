@@ -1,5 +1,15 @@
 <div class="container-fluid dash-container w-100">
   <ngx-spinner></ngx-spinner>
+  <div class="alert alert-danger" role="alert" *ngIf="closeAlrt">
+    <div class="row mx-auto">
+      <div class="col-10">
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> New Featre Alert: Search with PATIENT ID
+      </div>
+      <div class="col-2 d-flex justify-content-end">
+        <i class="fa fa-times text-right" (click)="clrAlrt()"></i>
+      </div>
+    </div>
+  </div>
   <div class="row mx-auto w-100 my-3">
     <div class="col-12 col-md-8">
       <span class="hTxt">INDIA COVID-19 TRACKER</span>

@@ -52,6 +52,7 @@ export class DashComponent implements OnInit {
   latsource: any;
   newSortArr = {};
   clrSrch: boolean = false;
+  closeAlrt = true;
 
   // now = moment().startOf('hour').fromNow();
 
@@ -202,8 +203,12 @@ export class DashComponent implements OnInit {
   }
 
   clearSearch() {
-    this.input.nativeElement.value = "";
+    this.input.nativeElement.value = '';
     this.clrSrch = false;
     this.getTempList();
+  }
+
+  clrAlrt() {
+    this.closeAlrt = false;
   }
 }
