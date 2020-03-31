@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as moment from 'moment';
 import { Chart } from 'chart.js';
@@ -40,14 +40,18 @@ export class DashComponent implements OnInit {
   latnotes: string;
   latcontractedFrom: string;
   lattravel: string;
-
+  arraySort = [];
+  searchValue = '';
   myBarChart = [];
   canvas: any;
   ctx: any;
 
-  @ViewChild('mychart', { static: false }) mychart;
+  @ViewChild('searchValue', { static: false }) input: ElementRef;
+
   resData: any;
   latsource: any;
+  newSortArr = {};
+  clrSrch: boolean = false;
 
   // now = moment().startOf('hour').fromNow();
 
@@ -102,80 +106,104 @@ export class DashComponent implements OnInit {
     this.http.get<LivePatient>('https://api.rootnet.in/covid19-in/unofficial/covid19india.org').subscribe(res => {
       const rawData = res.data.rawPatientData;
       if (rawData !== null && rawData !== undefined) {
+        this.arraySort = rawData;
+
         this.resData = _.last(rawData);
-        this.latpatientId = this.resData.patientId;
-        this.latReportedOn = this.resData.reportedOn;
-        this.latonsetEstimate = this.resData.onsetEstimate;
-        this.latageEstimate = this.resData.ageEstimate;
 
-        if (this.resData.gender !== '') {
-          this.latgender = this.resData.gender;
-        } else {
-          this.latgender = 'N/A';
-        }
-        if (this.resData.ageEstimate !== '') {
-          this.latageEstimate = this.resData.ageEstimate;
-        } else {
-          this.latageEstimate = 'N/A';
-        }
-        if (this.resData.district !== '') {
-          this.latdistrict = this.resData.district;
-        } else {
-          this.latdistrict = 'N/A';
-        }
+        console.log(this.resData);
 
-
-        if (this.resData.sources) {
-          if (this.resData.sources < 0) {
-            this.latsource = this.resData.sources[0];
-          }
-        } else {
-          this.latsource = 'Not Known';
-        }
-
-        if (this.resData.state !== '') {
-          this.latstate = this.resData.state;
-        } else {
-          this.latstate = 'N/A';
-        }
-        if (this.resData.status !== '') {
-          this.latstatus = this.resData.status;
-        } else {
-          this.latstatus = 'N/A';
-        }
-        if (this.resData.city !== '') {
-          this.latcity = this.resData.city;
-        } else {
-          this.latcity = 'N/A';
-        }
-        if (this.resData.notes !== '') {
-          this.latnotes = this.resData.notes;
-        } else {
-          this.latnotes = 'Awaiting response';
-        }
-        if (this.resData.contractedFrom !== '') {
-          this.latcontractedFrom = this.resData.contractedFrom;
-        } else {
-          this.latcontractedFrom = 'N/A';
-        }
-
-        if (this.resData.travel) {
-          if (this.resData.travel.length > 0) {
-            this.lattravel = this.resData.travel[0];
-          } else {
-            this.lattravel = 'N/A';
-          }
-        } else {
-          this.lattravel = 'Not Available';
-        }
-
+        this.mapping(this.resData);
 
       }
       this.spinner.hide();
     });
   }
 
-  onKeySearch(value: any) {
-    console.log(value);
+  mapping(data) {
+    this.latpatientId = data.patientId;
+    this.latReportedOn = data.reportedOn;
+    this.latonsetEstimate = data.onsetEstimate;
+    this.latageEstimate = data.ageEstimate;
+
+    if (data.gender !== '') {
+      this.latgender = data.gender;
+    } else {
+      this.latgender = 'N/A';
+    }
+    if (data.ageEstimate !== '') {
+      this.latageEstimate = data.ageEstimate;
+    } else {
+      this.latageEstimate = 'N/A';
+    }
+    if (data.district !== '') {
+      this.latdistrict = data.district;
+    } else {
+      this.latdistrict = 'N/A';
+    }
+
+
+    if (data.sources) {
+      if (data.sources < 0) {
+        this.latsource = data.sources[0];
+      }
+    } else {
+      this.latsource = 'Not Known';
+    }
+
+    if (data.state !== '') {
+      this.latstate = data.state;
+    } else {
+      this.latstate = 'N/A';
+    }
+    if (data.status !== '') {
+      this.latstatus = data.status;
+    } else {
+      this.latstatus = 'N/A';
+    }
+    if (data.city !== '') {
+      this.latcity = data.city;
+    } else {
+      this.latcity = 'N/A';
+    }
+    if (data.notes !== '') {
+      this.latnotes = data.notes;
+    } else {
+      this.latnotes = 'Awaiting response';
+    }
+    if (data.contractedFrom !== '') {
+      this.latcontractedFrom = data.contractedFrom;
+    } else {
+      this.latcontractedFrom = 'N/A';
+    }
+
+    if (data.travel) {
+      if (data.travel.length > 0) {
+        this.lattravel = data.travel[0];
+      } else {
+        this.lattravel = 'N/A';
+      }
+    } else {
+      this.lattravel = 'Not Available';
+    }
+
+  }
+
+  onKeySearch(value: number) {
+    this.resData = {};
+    this.clrSrch = true;
+    this.arraySort.forEach(element => {
+      if (Number(value) === element.patientId) {
+        // this.newSortArr.push(element);
+        this.resData = JSON.parse(JSON.stringify(element));
+      }
+    });
+    this.mapping(this.resData);
+    // console.log(this.resData);
+  }
+
+  clearSearch() {
+    this.input.nativeElement.value = "";
+    this.clrSrch = false;
+    this.getTempList();
   }
 }
