@@ -34,6 +34,7 @@ export class DashComponent implements OnInit {
   latageEstimate: string;
   latgender: string;
   latcity: string;
+  prevPatient: boolean = false;
   latdistrict: string;
   latstate: string;
   latstatus: string;
@@ -50,6 +51,7 @@ export class DashComponent implements OnInit {
   resData: any;
   latsource: any;
   newSortArr = {};
+  prevPatientClicked: boolean = false;
 
   // now = moment().startOf('hour').fromNow();
 
@@ -102,6 +104,9 @@ export class DashComponent implements OnInit {
 
   getTempList() {
     this.http.get<LivePatient>('https://api.rootnet.in/covid19-in/unofficial/covid19india.org').subscribe(res => {
+      if(!this.prevPatientClicked)
+        this.resData = res.data.rawPatientData[res.data.rawPatientData.length - 2];
+      if(!this.prevPatient){
       const rawData = res.data.rawPatientData;
       if (rawData !== null && rawData !== undefined) {
         this.arraySort = rawData;
@@ -112,6 +117,12 @@ export class DashComponent implements OnInit {
 
         this.mapping(this.resData);
 
+      }
+    }
+      else{ 
+        this.resData = res.data.rawPatientData[this.resData.patientId - 2];
+        this.prevPatientClicked = true;
+        this.mapping(this.resData);
       }
       this.spinner.hide();
     });
@@ -197,4 +208,9 @@ export class DashComponent implements OnInit {
     this.mapping(this.resData);
     // console.log(this.resData);
   }
+  prevPat(){
+    this.prevPatient = true;
+    this.getTempList();
+  }
+
 }
