@@ -64,7 +64,12 @@ export class DashComponent implements OnInit {
     this.getAllList();
   }
 
-
+  sortArrayOfObjects = (arr, key) => {
+    return arr.sort((a, b) => {
+      return b[key] - a[key];
+    });
+  };
+  
   getAllList() {
     // this.spinner.show();
     this.http.get(this.allListURL).subscribe(res => {
@@ -74,7 +79,7 @@ export class DashComponent implements OnInit {
       this.dataArray = this.allData.statewise;
 
       this.todaysData = this.allData.key_values;
-
+      this.sortArrayOfObjects(this.dataArray, "confirmed");
       this.getTempList();
 
       if (this.allData !== null && this.allData !== undefined) {
@@ -162,7 +167,7 @@ export class DashComponent implements OnInit {
           }
         } else {
           this.lattravel = 'Not Available';
-        } 
+        }
 
 
       }
