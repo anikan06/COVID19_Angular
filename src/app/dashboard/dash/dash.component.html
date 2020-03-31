@@ -154,7 +154,8 @@
               </div>
               <div class="col">
                 <span class="label">Source:</span>
-                <a href="{{latsource}}" target="_blank" class="resp"> {{latsource}} </a>
+                <a href="{{latsource}}" target="_blank" class="resp" *ngIf="latsource !== 'Not Known'"> {{latsource}} </a>
+                <span class="resp" *ngIf="latsource === 'Not Known'"> {{latsource}} </span>
               </div>
             </div>
             <div class="row mx-auto py-1">

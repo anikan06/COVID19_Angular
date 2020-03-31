@@ -219,7 +219,7 @@ export class DashComponent implements OnInit {
         }
 
         if (this.resData.travel) {
-          if (this.resData.travel < 0) {
+          if (this.resData.travel.length > 0) {
             this.lattravel = this.resData.travel[0];
           } else {
             this.lattravel = 'N/A';
