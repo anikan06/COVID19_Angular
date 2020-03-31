@@ -223,18 +223,26 @@ export class DashComponent implements OnInit {
       if (Number(value) === element.patientId) {
         // this.newSortArr.push(element);
         this.resData = JSON.parse(JSON.stringify(element));
+        if(element.patientId !== this.arraySort.length)
+        this.nextBtnDisabled = false;
+        else
+        this.nextBtnDisabled = true;
       }
     });
     this.mapping(this.resData);
     // console.log(this.resData);
   }
   prevPat(){
+    this.input.nativeElement.value = '';
+    this.clrSrch = false;
     this.prevPatient = true;
     this.nextPatient = false;
     this.nextBtnDisabled = false;
     this.getTempList();
   }
   nextPat(){
+    this.input.nativeElement.value = '';
+    this.clrSrch = false;
     this.nextPatient = true;
     this.prevPatient = false;
     this.getTempList();
@@ -243,6 +251,7 @@ export class DashComponent implements OnInit {
   clearSearch() {
     this.input.nativeElement.value = '';
     this.clrSrch = false;
+    this.nextBtnDisabled = true;
     this.getTempList();
   }
 
