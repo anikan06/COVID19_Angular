@@ -242,6 +242,7 @@ export class DashComponent implements OnInit {
   nextPat(){
     this.input.nativeElement.value = '';
     this.clrSrch = false;
+    this.prevBtnDisabled = false;
     this.nextPatient = true;
     this.prevPatient = false;
     this.getTempList();
