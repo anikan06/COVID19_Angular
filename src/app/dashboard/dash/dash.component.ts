@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as moment from 'moment';
 import { Chart } from 'chart.js';
@@ -42,18 +42,20 @@ export class DashComponent implements OnInit {
   latcontractedFrom: string;
   lattravel: string;
   arraySort = [];
-
+  searchValue = '';
   myBarChart = [];
   canvas: any;
   ctx: any;
 
-  @ViewChild('mychart', { static: false }) mychart;
+  @ViewChild('searchValue', { static: false }) input: ElementRef;
+
   resData: any;
   latsource: any;
   newSortArr = {};
   prevPatientClicked: boolean = false;
   nextPatient: boolean = false;
   nextPatientClicked: boolean = false;
+  clrSrch: boolean = false;
 
   // now = moment().startOf('hour').fromNow();
 
@@ -205,6 +207,7 @@ export class DashComponent implements OnInit {
 
   onKeySearch(value: number) {
     this.resData = {};
+    this.clrSrch = true;
     this.arraySort.forEach(element => {
       if (Number(value) === element.patientId) {
         // this.newSortArr.push(element);
@@ -222,6 +225,11 @@ export class DashComponent implements OnInit {
   nextPat(){
     this.nextPatient = true;
     this.prevPatient = false;
+  }
+
+  clearSearch() {
+    this.input.nativeElement.value = "";
+    this.clrSrch = false;
     this.getTempList();
   }
 }
