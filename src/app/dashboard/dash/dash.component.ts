@@ -59,6 +59,7 @@ export class DashComponent implements OnInit {
   nextBtnDisabled: boolean = true;
   prevBtnDisabled: boolean = false;
   interval;
+  livePatientUrl = 'https://api.rootnet.in/covid19-in/unofficial/covid19india.org';
 
   // now = moment().startOf('hour').fromNow();
 
@@ -72,15 +73,15 @@ export class DashComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show();
-    this.getAllList();
+    this.getAllList('normal');
     this.interval = setInterval(() => {
-      this.getAllList();
-    }, 30000);
+      this.getAllList('refresh');
+    }, 300000);
   }
 
 
 
-  getAllList() {
+  getAllList(data: any) {
     // this.spinner.show();
     this.http.get(this.allListURL).subscribe(res => {
 
@@ -89,8 +90,9 @@ export class DashComponent implements OnInit {
 
       this.todaysData = this.allData.key_values;
       this.dashService.sortArrayOfObjects(this.dataArray, 'confirmed');
+      // if (data === 'normal') {
       this.getTempList();
-
+      // }
       if (this.allData !== null && this.allData !== undefined) {
         this.totalConfirmed = this.allData.statewise[0].confirmed;
         this.totalActive = this.allData.statewise[0].active;
@@ -103,13 +105,16 @@ export class DashComponent implements OnInit {
         this.todayRecover = this.allData.key_values[0].recovereddelta;
         this.todayDeath = this.allData.key_values[0].deceaseddelta;
       }
-      this.toastr.success('Fetched Data Successfully as on ' + this.lastUpdatedTime);
+      if (data === 'normal') {
+        this.toastr.success('Fetched Data Successfully as on ' + this.lastUpdatedTime);
+      }
+
       this.spinner.hide();
     });
   }
 
   getTempList() {
-    this.http.get<LivePatient>('https://api.rootnet.in/covid19-in/unofficial/covid19india.org').subscribe(res => {
+    this.http.get<LivePatient>(this.livePatientUrl).subscribe(res => {
       if (!this.prevPatientClicked && this.prevPatient) {
         this.resData = res.data.rawPatientData[res.data.rawPatientData.length - 1];
       }
@@ -128,18 +133,18 @@ export class DashComponent implements OnInit {
       } else if (!this.nextPatient) {
         this.resData = res.data.rawPatientData[this.resData.patientId - 2];
         this.prevPatientClicked = true;
-        if(this.resData.patientId === 1)
-        this.prevBtnDisabled = true;
+        if (this.resData.patientId === 1)
+          this.prevBtnDisabled = true;
         else
-        this.prevBtnDisabled = false;
+          this.prevBtnDisabled = false;
         this.mapping(this.resData);
       } else {
         this.resData = res.data.rawPatientData[this.resData.patientId];
         this.nextPatientClicked = true;
-        if(this.resData.patientId === res.data.rawPatientData.length)
-        this.nextBtnDisabled = true;
+        if (this.resData.patientId === res.data.rawPatientData.length)
+          this.nextBtnDisabled = true;
         else
-        this.nextBtnDisabled = false;
+          this.nextBtnDisabled = false;
         this.mapping(this.resData);
       }
       this.spinner.hide();
@@ -222,18 +227,18 @@ export class DashComponent implements OnInit {
       if (Number(value) === element.patientId) {
         // this.newSortArr.push(element);
         this.resData = JSON.parse(JSON.stringify(element));
-        if(element.patientId !== this.arraySort.length)
-        this.nextBtnDisabled = false;
+        if (element.patientId !== this.arraySort.length)
+          this.nextBtnDisabled = false;
         else
-        this.nextBtnDisabled = true;
-        if(element.patientId === 1)
-        this.prevBtnDisabled = true;
+          this.nextBtnDisabled = true;
+        if (element.patientId === 1)
+          this.prevBtnDisabled = true;
       }
     });
     this.mapping(this.resData);
     // console.log(this.resData);
   }
-  prevPat(){
+  prevPat() {
     this.input.nativeElement.value = '';
     this.clrSrch = false;
     this.prevPatient = true;
@@ -241,7 +246,7 @@ export class DashComponent implements OnInit {
     this.nextBtnDisabled = false;
     this.getTempList();
   }
-  nextPat(){
+  nextPat() {
     this.input.nativeElement.value = '';
     this.clrSrch = false;
     this.prevBtnDisabled = false;
