@@ -10,29 +10,151 @@
       </div>
     </div>
   </div>
-  <div class="row mx-auto w-100 my-3">
-    <div class="col-12 col-md-8">
-      <span class="hTxt">INDIA COVID-19 TRACKER</span>
-    </div>
-    <div class="col-12 col-md-4 py-3">
-      <!-- <span class="luD text-success"> Last Updated at {{lastUpdatedTime}}</span> -->
-    </div>
-  </div>
 
   <div class="row mx-auto w-100 my-2">
-    <div class="col">
+      <div class="col-12 col-md-3 px-1 py-2">
+          <div class="card text-center w-100">
+            <div class="card-body bg-info p-2">
+              <div class="row mx-auto">
+                <div class="col-3 border-right py-4">
+                    <i class="fa fa-users fa-2x text-light"></i><br/>
+                </div>
+                <div class="col-9">
+                  <div class="row mx-auto d-flex justify-content-center border-bottom">
+                      <div class="col-12 smBgT">
+                          Confirmed
+                        </div>
+                        <div class="col-12 smTxt">
+                          {{totalConfirmed}}
+                        </div>
+                  </div>
+                  <div class="row mx-auto d-flex justify-content-center">
+                      <div class="col-12 smBgTc">
+                          Today's
+                        </div>
+                        <div class="col-12 smTxtm">
+                          +{{todayConfirm}}
+                        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      <div class="col-12 col-md-3 px-1 py-2">
+          <div class="card text-center w-100">
+            <div class="card-body bg-warning p-2">
+              <div class="row mx-auto">
+                <div class="col-3 border-right py-4">
+                    <i class="fa fa-user-md fa-2x text-light"></i><br/>
+                </div>
+                <div class="col-9">
+                  <div class="row mx-auto d-flex justify-content-center border-bottom">
+                      <div class="col-12 smBgT">
+                          Active
+                        </div>
+                        <div class="col-12 smTxt">
+                          {{totalActive}}
+                        </div>
+                  </div>
+                  <div class="row mx-auto d-flex justify-content-center">
+                      <div class="col-12 smBgTc">
+                          Today's
+                        </div>
+                        <div class="col-12 smTxtm">
+                          +{{todayActive}}
+                        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      <div class="col-12 col-md-3 px-1 py-2">
+          <div class="card text-center w-100">
+            <div class="card-body bg-success p-2">
+              <div class="row mx-auto">
+                <div class="col-3 border-right py-4">
+                    <i class="fa fa-user-o fa-2x text-light"></i><br/>
+                </div>
+                <div class="col-9">
+                  <div class="row mx-auto d-flex justify-content-center border-bottom">
+                      <div class="col-12 smBgT">
+                          Recovered
+                        </div>
+                        <div class="col-12 smTxt">
+                          {{totalRecovered}}
+                        </div>
+                  </div>
+                  <div class="row mx-auto d-flex justify-content-center">
+                      <div class="col-12 smBgTc">
+                          Today's
+                        </div>
+                        <div class="col-12 smTxtm">
+                          +{{todayRecover}}
+                        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      <div class="col-12 col-md-3 px-1 py-2">
+          <div class="card text-center w-100">
+            <div class="card-body bg-danger p-2">
+              <div class="row mx-auto">
+                <div class="col-3 border-right py-4">
+                    <i class="fa fa-user-times fa-2x text-light"></i><br/>
+                </div>
+                <div class="col-9">
+                  <div class="row mx-auto d-flex justify-content-center border-bottom">
+                      <div class="col-12 smBgT">
+                          Death
+                        </div>
+                        <div class="col-12 smTxt">
+                          {{totalDeath}}
+                        </div>
+                  </div>
+                  <div class="row mx-auto d-flex justify-content-center">
+                      <div class="col-12 smBgTc">
+                          Today's
+                        </div>
+                        <div class="col-12 smTxtm">
+                          +{{todayDeath}}
+                        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+    <!-- <div class="col">
       <div class="card text-center w-100">
-        <div class="card-header bg-info border-0">
+        <div class="card-header bg-info border-0 pb-0">
           <span class="cdHd">
+            <i class="fa fa-users fa-2x"></i><br/>
             Confirmed
           </span>
         </div>
-        <div class="card-body bg-info p-1">
+        <div class="card-body d-flex bg-info justify-content-center p-1">
           <span class="cdBdC">
             {{totalConfirmed}}
           </span>
         </div>
-        <div class="card-footer bg-info p-1">
+        <div class="card-footer bg-secondary-info p-1">
           <div class="row mx-auto d-flex justify-content-center">
             <span class="ftTxt">
               Today's Confirmed
@@ -45,11 +167,12 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="col">
+    </div> -->
+    <!-- <div class="col">
       <div class="card text-center w-100">
-        <div class="card-header bg-warning border-0">
+        <div class="card-header bg-warning border-0 pb-0">
           <span class="cdHd">
+              <i class="fa fa-user-md fa-2x"></i><br/>
             Active
           </span>
         </div>
@@ -71,11 +194,12 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="col">
+    </div> -->
+    <!-- <div class="col">
       <div class="card text-center w-100">
-        <div class="card-header bg-success border-0">
+        <div class="card-header bg-success border-0 pb-0">
           <span class="cdHd">
+              <i class="fa fa-user-o fa-2x"></i><br/>
             Recovered
           </span>
         </div>
@@ -97,11 +221,12 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="col">
+    </div> -->
+    <!-- <div class="col">
       <div class="card  text-center w-100">
-        <div class="card-header bg-danger border-0">
+        <div class="card-header bg-danger border-0 pb-0">
           <span class="cdHd">
+              <i class="fa fa-user-times fa-2x"></i><br/>
             Death
           </span>
         </div>
@@ -123,7 +248,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
   <div class="row mx-auto w-100 my-2">

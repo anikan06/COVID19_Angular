@@ -31,6 +31,7 @@ export class ClusterComponentComponent implements OnInit {
   todayRecover: string;
   todayActive: any;
   todayDeath: string;
+  closeAlrt: boolean = true;
 
 
   constructor(
@@ -105,6 +106,9 @@ export class ClusterComponentComponent implements OnInit {
       districtArray.push(districtDetails);
     });
     return districtArray;
+  }
+  clrAlrt() {
+    this.closeAlrt = false;
   }
 
   getTempList() {

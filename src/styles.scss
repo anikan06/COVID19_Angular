@@ -22,7 +22,7 @@ router-outlet + * {
 
 .cdBdC {
     color: #ffffff;
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 600;
 }
 .cdBdA {
@@ -108,3 +108,24 @@ router-outlet + * {
         display: none;
     }
  }
+
+
+.smBgT {
+    font-size: 1em;
+    color: #fff;
+    font-weight: 600;
+    display: block;
+}
+
+.smTxt {
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: 600;
+    display: block;
+}
+.smBgTc {
+    font-size: 0.9em;
+    color: #343a40;
+    font-weight: 600;
+    display: block;
+}
