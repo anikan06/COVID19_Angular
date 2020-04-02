@@ -300,13 +300,13 @@
                 <img src="./assets/images/femalePatient.png" class="img-fluid img100" *ngIf="latgender === 'female'">
                 <img src="src/assets/images/trans.png" class="img-fluid img100" *ngIf="latgender === 'others'">
               </div>
-              <div class="col-12 d-flex justify-content-center">
+              <div class="col-6 col-md-12 py-2 py-md-0 d-flex justify-content-center">
                 <span class="label">Patient ID:</span>
                 <span class="resp"> {{latpatientId}} </span>
               </div>
-              <div class="col-12 d-flex justify-content-center">
-                <span class="label d-block d-md-inline">Reported:</span>
-                <span class="resp"> {{latReportedOn}} </span>
+              <div class="col-6 col-md-12 py-2 py-md-0 d-flex justify-content-center">
+                <span class="label d-block d-md-inline">Gender:</span>
+                <span class="resp"> {{latgender}} </span>
               </div>
             </div>
           </div>
@@ -317,8 +317,8 @@
                 <span class="resp"> {{latstatus}} </span>
               </div>
               <div class="col-6 col-md-3 py-1 py-md-2">
-                <span class="label d-block d-md-inline">Gender:</span>
-                <span class="resp"> {{latgender}} </span>
+                <span class="label d-block d-md-inline">Reported:</span>
+                <span class="resp"> {{latReportedOn}} </span>
               </div>
               <div class="col-6 col-md-3 py-1 py-md-2">
                 <span class="label d-block d-md-inline">Age:</span>
