@@ -56,8 +56,8 @@ export class DashComponent implements OnInit {
   nextPatientClicked = false;
   clrSrch = false;
   closeAlrt = true;
-  nextBtnDisabled: boolean = true;
-  prevBtnDisabled: boolean = false;
+  nextBtnDisabled = true;
+  prevBtnDisabled = false;
   interval;
   livePatientUrl = 'https://api.rootnet.in/covid19-in/unofficial/covid19india.org';
 
@@ -101,7 +101,9 @@ export class DashComponent implements OnInit {
         this.lastUpdatedTime = this.allData.statewise[0].lastupdatedtime;
         this.todayConfirm = this.allData.key_values[0].confirmeddelta;
         this.todayActive =
-          (this.allData.key_values[0].confirmeddelta - this.allData.key_values[0].recovereddelta) - this.allData.key_values[0].deceaseddelta;
+          (this.allData.key_values[0].confirmeddelta -
+            this.allData.key_values[0].recovereddelta) -
+          this.allData.key_values[0].deceaseddelta;
         this.todayRecover = this.allData.key_values[0].recovereddelta;
         this.todayDeath = this.allData.key_values[0].deceaseddelta;
       }
@@ -133,18 +135,20 @@ export class DashComponent implements OnInit {
       } else if (!this.nextPatient) {
         this.resData = res.data.rawPatientData[this.resData.patientId - 2];
         this.prevPatientClicked = true;
-        if (this.resData.patientId === 1)
+        if (this.resData.patientId === 1) {
           this.prevBtnDisabled = true;
-        else
+        } else {
           this.prevBtnDisabled = false;
+        }
         this.mapping(this.resData);
       } else {
         this.resData = res.data.rawPatientData[this.resData.patientId];
         this.nextPatientClicked = true;
-        if (this.resData.patientId === res.data.rawPatientData.length)
+        if (this.resData.patientId === res.data.rawPatientData.length) {
           this.nextBtnDisabled = true;
-        else
+        } else {
           this.nextBtnDisabled = false;
+        }
         this.mapping(this.resData);
       }
       this.spinner.hide();
@@ -227,12 +231,14 @@ export class DashComponent implements OnInit {
       if (Number(value) === element.patientId) {
         // this.newSortArr.push(element);
         this.resData = JSON.parse(JSON.stringify(element));
-        if (element.patientId !== this.arraySort.length)
+        if (element.patientId !== this.arraySort.length) {
           this.nextBtnDisabled = false;
-        else
+        } else {
           this.nextBtnDisabled = true;
-        if (element.patientId === 1)
+        }
+        if (element.patientId === 1) {
           this.prevBtnDisabled = true;
+        }
       }
     });
     this.mapping(this.resData);

@@ -31,7 +31,7 @@ export class ClusterComponentComponent implements OnInit {
   todayRecover: string;
   todayActive: any;
   todayDeath: string;
-  closeAlrt: boolean = true;
+  closeAlrt = true;
 
 
   constructor(
@@ -83,7 +83,9 @@ export class ClusterComponentComponent implements OnInit {
         this.lastUpdatedTime = this.allData.statewise[0].lastupdatedtime;
         this.todayConfirm = this.allData.key_values[0].confirmeddelta;
         this.todayActive =
-          (this.allData.key_values[0].confirmeddelta - this.allData.key_values[0].recovereddelta) - this.allData.key_values[0].deceaseddelta;
+          (this.allData.key_values[0].confirmeddelta -
+            this.allData.key_values[0].recovereddelta) -
+          this.allData.key_values[0].deceaseddelta;
         this.todayRecover = this.allData.key_values[0].recovereddelta;
         this.todayDeath = this.allData.key_values[0].deceaseddelta;
       }
