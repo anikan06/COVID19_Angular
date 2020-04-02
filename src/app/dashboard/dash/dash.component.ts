@@ -74,8 +74,8 @@ export class DashComponent implements OnInit {
     this.spinner.show();
     this.getAllList();
     this.interval = setInterval(() => {
-      this.getTempList();
-    }, 300000);
+      this.getAllList();
+    }, 30000);
   }
 
 

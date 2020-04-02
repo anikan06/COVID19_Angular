@@ -3,7 +3,7 @@
   <div class="alert alert-success" role="alert" *ngIf="closeAlrt">
     <div class="row mx-auto">
       <div class="col-10">
-          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> New Feature Alert: Search By PATIENT ID
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Last Updated at {{lastUpdatedTime}}
       </div>
       <div class="col-2 d-flex justify-content-end">
         <i class="fa fa-times text-right" (click)="clrAlrt()"></i>
@@ -15,7 +15,7 @@
       <span class="hTxt">INDIA COVID-19 TRACKER</span>
     </div>
     <div class="col-12 col-md-4 py-3">
-      <span class="luD text-success"> Last Updated at {{lastUpdatedTime}}</span>
+      <!-- <span class="luD text-success"> Last Updated at {{lastUpdatedTime}}</span> -->
     </div>
   </div>
 
