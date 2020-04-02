@@ -277,61 +277,69 @@
       </div>
       <div class="card-body p-0">
         <div class="row mx-auto">
-          <div class="col-12 col-md-2 d-flex justify-content-center border-right-md border-bottom p-2 p-md-2">
-            <img src="./assets/images/malePatient.png" class="img-fluid img100" *ngIf="latgender === 'male'">
-            <img src="./assets/images/femalePatient.png" class="img-fluid img100" *ngIf="latgender === 'female'">
-            <img src="src/assets/images/trans.png" class="img-fluid img100" *ngIf="latgender === 'others'">
+          <div class="col-12 col-md-2 d-flex justify-content-center border-right-md border-bottom p-2 py-md-5 px-md-4">
+            <div class="row mx-auto">
+              <div class="col-12  d-flex justify-content-center">
+                  <img src="./assets/images/malePatient.png" class="img-fluid img100" *ngIf="latgender === 'male'">
+                  <img src="./assets/images/femalePatient.png" class="img-fluid img100" *ngIf="latgender === 'female'">
+                  <img src="src/assets/images/trans.png" class="img-fluid img100" *ngIf="latgender === 'others'">
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                  <span class="label">Patient ID:</span>
+                  <span class="resp"> {{latpatientId}} </span>
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                  <span class="label d-block d-md-inline">Reported:</span>
+                <span class="resp"> {{latReportedOn}} </span>
+              </div>
+            </div>
           </div>
           <div class="col-10">
             <div class="row mx-auto  py-1">
-              <div class="col-12 col-md-3">
-                <span class="label">Patient ID:</span>
-                <span class="resp"> {{latpatientId}} </span>
-              </div>
-              <div class="col-12 col-md-3">
-                <span class="label">Reported:</span>
-                <span class="resp"> {{latReportedOn}} </span>
-              </div>
-              <div class="col">
-                <span class="label">Status:</span>
+              <div class="col col-md-3">
+                <span class="label d-block d-md-inline">Status:</span>
                 <span class="resp"> {{latstatus}} </span>
               </div>
-            </div>
-            <div class="row mx-auto py-1">
-              <div class="col-12 col-md-3">
-                <span class="label">Age:</span>
-                <span class="resp"> {{latageEstimate}} </span>
-              </div>
-              <div class="col-12 col-md-3">
-                <span class="label">Gender:</span>
+              <div class="col">
+                <span class="label d-block d-md-inline">Gender:</span>
                 <span class="resp"> {{latgender}} </span>
               </div>
-              <div class="col">
-                <span class="label">Source:</span>
-                <a href="{{latsource}}" target="_blank" class="resp" *ngIf="latsource !== 'Not Known'"> {{latsource}}
-                </a>
-                <span class="resp" *ngIf="latsource === 'Not Known'"> {{latsource}} </span>
-              </div>
             </div>
             <div class="row mx-auto py-1">
-              <div class="col-12 col-md-3">
-                <span class="label">City:</span>
+              <div class="col col-md-3">
+                <span class="label d-block d-md-inline">Age:</span>
+                <span class="resp"> {{latageEstimate}} </span>
+              </div>
+              <div class="col">
+                <span class="label d-block d-md-inline">City:</span>
                 <span class="resp"> {{latcity}} </span>
               </div>
-              <div class="col-12 col-md-3">
-                <span class="label">District:</span>
+              
+            </div>
+            <div class="row mx-auto py-1">
+              <div class="col col-md-3">
+                <span class="label d-block d-md-inline">District:</span>
                 <span class="resp"> {{latdistrict}} </span>
               </div>
               <div class="col">
-                <span class="label">State:</span>
+                <span class="label d-block d-md-inline">State:</span>
                 <span class="resp"> {{latstate}} </span>
               </div>
+              
             </div>
             <div class="row mx-auto py-1">
               <div class="col">
                 <span class="label">Contracted From:</span>
                 <span class="resp"> {{latcontractedFrom}} </span>
               </div>
+            </div>
+            <div class="row mx-auto py-1">
+                <div class="col-12">
+                    <span class="label">Source:</span>
+                    <a href="{{latsource}}" target="_blank" class="resp" *ngIf="latsource !== 'Not Known'"> {{latsource}}
+                    </a>
+                    <span class="resp" *ngIf="latsource === 'Not Known'"> {{latsource}} </span>
+                  </div>
             </div>
             <div class="row mx-auto py-1">
               <div class="col">
