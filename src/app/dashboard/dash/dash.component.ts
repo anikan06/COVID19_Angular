@@ -42,9 +42,6 @@ export class DashComponent implements OnInit {
   lattravel: string;
   arraySort = [];
   searchValue = '';
-  myBarChart = [];
-  canvas: any;
-  ctx: any;
 
   @ViewChild('searchValue', { static: false }) input: ElementRef;
 
