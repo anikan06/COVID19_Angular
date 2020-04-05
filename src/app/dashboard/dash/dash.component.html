@@ -404,8 +404,8 @@
                   <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
                     {{statedata.confirmed}}
                     <span class="badge badge-danger">
-                      <i class="fa fa-arrow-up " *ngIf='statedata.delta.confirmed > 0'>
-                        {{statedata.delta.confirmed}} New
+                      <i class="fa fa-arrow-up " *ngIf='statedata.deltaconfirmed > 0'>
+                        {{statedata.deltaconfirmed}} New
                       </i>
                     </span>
 
@@ -414,11 +414,12 @@
                 <td>
                   <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
                     {{statedata.active}}
-                    <span class="badge badge-danger">
+                    <!-- <span class="badge badge-danger">
                       <i class="fa fa-arrow-up " *ngIf='statedata.delta.active > 0'>
+                          {{statedata.deltaconfirmed}}
                         {{statedata.delta.active}} New
                       </i>
-                    </span>
+                    </span> -->
 
                   </span>
                 </td>
@@ -426,8 +427,8 @@
                   <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
                     {{statedata.recovered}}
                     <span class="badge badge-danger">
-                      <i class="fa fa-arrow-up " *ngIf='statedata.delta.recovered > 0'>
-                        {{statedata.delta.recovered}} New
+                      <i class="fa fa-arrow-up " *ngIf='statedata.deltarecovered > 0'>
+                        {{statedata.deltarecovered}} New
                       </i>
                     </span>
 
@@ -438,8 +439,8 @@
                   <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
                     {{statedata.deaths}}
                     <span class="badge badge-danger">
-                      <i class="fa fa-arrow-up " *ngIf='statedata.delta.deaths > 0'>
-                        {{statedata.delta.deaths}} New
+                      <i class="fa fa-arrow-up " *ngIf='statedata.deltadeaths > 0'>
+                        {{statedata.deltadeaths}} New
                       </i>
                     </span>
 

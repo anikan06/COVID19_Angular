@@ -85,7 +85,9 @@ export class DashComponent implements OnInit {
       this.allData = res;
       this.dataArray = this.allData.statewise;
 
-      this.todaysData = this.allData.key_values;
+      this.todaysData = this.allData.statewise;
+      console.log(this.dataArray);
+
       this.dashService.sortArrayOfObjects(this.dataArray, 'confirmed');
       // if (data === 'normal') {
       this.getTempList();
@@ -96,13 +98,14 @@ export class DashComponent implements OnInit {
         this.totalRecovered = this.allData.statewise[0].recovered;
         this.totalDeath = this.allData.statewise[0].deaths;
         this.lastUpdatedTime = this.allData.statewise[0].lastupdatedtime;
-        this.todayConfirm = this.allData.key_values[0].confirmeddelta;
+        // this.todayConfirm = this.allData.key_values[0].confirmeddelta;
+        this.todayConfirm = this.allData.statewise[0].deltaconfirmed;
         this.todayActive =
-          (this.allData.key_values[0].confirmeddelta -
-            this.allData.key_values[0].recovereddelta) -
-          this.allData.key_values[0].deceaseddelta;
-        this.todayRecover = this.allData.key_values[0].recovereddelta;
-        this.todayDeath = this.allData.key_values[0].deceaseddelta;
+          (this.allData.statewise[0].deltaconfirmed -
+            this.allData.statewise[0].deltarecovered) -
+          this.allData.statewise[0].deltadeaths;
+        this.todayRecover = this.allData.statewise[0].deltarecovered;
+        this.todayDeath = this.allData.statewise[0].deltadeaths;
       }
       if (data === 'normal') {
         this.toastr.success('Fetched Data Successfully as on ' + this.lastUpdatedTime);
@@ -135,7 +138,7 @@ export class DashComponent implements OnInit {
         if (this.resData.patientId === 1) {
           this.prevBtnDisabled = true;
         } else {
-          this.prevBtnDisabled = false;
+          this.prevBtnDisabled = false; 
         }
         this.mapping(this.resData);
       } else {
