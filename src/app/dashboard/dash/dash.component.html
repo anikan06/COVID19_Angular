@@ -1,12 +1,22 @@
 <div class="container-fluid dash-container w-100">
   <ngx-spinner></ngx-spinner>
+  <div class="alert alert-danger" role="alert" *ngIf="notifyAlrt">
+    <div class="row mx-auto">
+      <div class="col-10">
+        <i class="fa fa-times" aria-hidden="true"></i> DO NOT use alcohol-based hand sanitizers before lighting diyas or candles. Alcohol is flammable 🔥
+      </div>
+      <div class="col-2 d-flex justify-content-end">
+        <i class="fa fa-times text-right" (click)="clrAlrt('notify')"></i>
+      </div>
+    </div>
+  </div>
   <div class="alert alert-success" role="alert" *ngIf="closeAlrt">
     <div class="row mx-auto">
       <div class="col-10">
         <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Last Updated at {{lastUpdatedTime}}
       </div>
       <div class="col-2 d-flex justify-content-end">
-        <i class="fa fa-times text-right" (click)="clrAlrt()"></i>
+        <i class="fa fa-times text-right" (click)="clrAlrt('time')"></i>
       </div>
     </div>
   </div>

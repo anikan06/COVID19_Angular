@@ -53,6 +53,7 @@ export class DashComponent implements OnInit {
   nextPatientClicked = false;
   clrSrch = false;
   closeAlrt = true;
+  notifyAlrt = true;
   nextBtnDisabled = true;
   prevBtnDisabled = false;
   interval;
@@ -138,7 +139,7 @@ export class DashComponent implements OnInit {
         if (this.resData.patientId === 1) {
           this.prevBtnDisabled = true;
         } else {
-          this.prevBtnDisabled = false; 
+          this.prevBtnDisabled = false;
         }
         this.mapping(this.resData);
       } else {
@@ -268,7 +269,13 @@ export class DashComponent implements OnInit {
     this.getTempList();
   }
 
-  clrAlrt() {
-    this.closeAlrt = false;
+  clrAlrt(d) {
+    if (d === 'notify') {
+      this.notifyAlrt = false;
+    }
+    if (d === 'time') {
+      this.closeAlrt = false;
+    }
+
   }
 }
