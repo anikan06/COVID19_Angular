@@ -403,7 +403,7 @@
                 <td>
                   <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
                     {{statedata.confirmed}}
-                    <span class="badge badge-danger">
+                    <span class="badge badge-warning">
                       <i class="fa fa-arrow-up " *ngIf='statedata.deltaconfirmed > 0'>
                         {{statedata.deltaconfirmed}} New
                       </i>
@@ -426,7 +426,7 @@
                 <td>
                   <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
                     {{statedata.recovered}}
-                    <span class="badge badge-danger">
+                    <span class="badge badge-success">
                       <i class="fa fa-arrow-up " *ngIf='statedata.deltarecovered > 0'>
                         {{statedata.deltarecovered}} New
                       </i>
