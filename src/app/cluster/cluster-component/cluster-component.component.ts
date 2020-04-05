@@ -31,6 +31,7 @@ export class ClusterComponentComponent implements OnInit {
   todayRecover: string;
   todayActive: any;
   todayDeath: string;
+  interval;
   closeAlrt = true;
 
 
@@ -42,7 +43,10 @@ export class ClusterComponentComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show();
-    this.getAllList();
+    this.getAllList('normal');
+    this.interval = setInterval(() => {
+      this.getAllList('refresh');
+    }, 300000);
     this.getStateList();
 
     this.getTempList();
@@ -69,28 +73,41 @@ export class ClusterComponentComponent implements OnInit {
     });
   }
 
-  getAllList() {
+  getAllList(data: any) {
+    // this.spinner.show();
     this.http.get(this.allListURL).subscribe(res => {
+
       this.allData = res;
       this.dataArray = this.allData.statewise;
-      this.todaysData = this.allData.key_values;
 
+      this.todaysData = this.allData.statewise;
+      console.log(this.dataArray);
+
+      // this.dashService.sortArrayOfObjects(this.dataArray, 'confirmed');
+      // if (data === 'normal') {
+      this.getTempList();
+      // }
       if (this.allData !== null && this.allData !== undefined) {
         this.totalConfirmed = this.allData.statewise[0].confirmed;
         this.totalActive = this.allData.statewise[0].active;
         this.totalRecovered = this.allData.statewise[0].recovered;
         this.totalDeath = this.allData.statewise[0].deaths;
         this.lastUpdatedTime = this.allData.statewise[0].lastupdatedtime;
-        this.todayConfirm = this.allData.key_values[0].confirmeddelta;
+        // this.todayConfirm = this.allData.key_values[0].confirmeddelta;
+        this.todayConfirm = this.allData.statewise[0].deltaconfirmed;
         this.todayActive =
-          (this.allData.key_values[0].confirmeddelta -
-            this.allData.key_values[0].recovereddelta) -
-          this.allData.key_values[0].deceaseddelta;
-        this.todayRecover = this.allData.key_values[0].recovereddelta;
-        this.todayDeath = this.allData.key_values[0].deceaseddelta;
+          (this.allData.statewise[0].deltaconfirmed -
+            this.allData.statewise[0].deltarecovered) -
+          this.allData.statewise[0].deltadeaths;
+        this.todayRecover = this.allData.statewise[0].deltarecovered;
+        this.todayDeath = this.allData.statewise[0].deltadeaths;
       }
+      if (data === 'normal') {
+        this.toastr.success('Fetched Data Successfully as on ' + this.lastUpdatedTime);
+      }
+
+      this.spinner.hide();
     });
-    this.spinner.hide();
   }
 
   private _decryptStateDetails(stateData: any): Array<DistrictDetails> {
