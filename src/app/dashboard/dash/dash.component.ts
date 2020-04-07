@@ -87,7 +87,6 @@ export class DashComponent implements OnInit {
       this.dataArray = this.allData.statewise;
 
       this.todaysData = this.allData.statewise;
-      console.log(this.dataArray);
 
       this.dashService.sortArrayOfObjects(this.dataArray, 'confirmed');
       // if (data === 'normal') {
@@ -127,8 +126,6 @@ export class DashComponent implements OnInit {
           this.arraySort = rawData;
 
           this.resData = _.last(rawData);
-
-          console.log(this.resData);
 
           this.mapping(this.resData);
 
@@ -243,7 +240,6 @@ export class DashComponent implements OnInit {
       }
     });
     this.mapping(this.resData);
-    // console.log(this.resData);
   }
   prevPat() {
     this.input.nativeElement.value = '';
