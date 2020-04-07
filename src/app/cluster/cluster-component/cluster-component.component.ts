@@ -108,7 +108,7 @@ export class ClusterComponentComponent implements OnInit {
         this.todayDeath = this.allData.statewise[0].deltadeaths;
       }
       if (data === 'normal') {
-        this.toastr.success('Fetched Data Successfully as on ' + this.lastUpdatedTime);
+        this.toastr.success('Last updated ' + this.lastUpdatedTime);
       }
 
       this.spinner.hide();
