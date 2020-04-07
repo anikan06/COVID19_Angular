@@ -30,7 +30,7 @@ export class LogComponent implements OnInit {
   ngOnInit() {
     this.getLogs();
     this.interval = setInterval(() => {
-      this.periodicFetch('inside');
+      this.getLogs();
     }, 120000);
   }
 
