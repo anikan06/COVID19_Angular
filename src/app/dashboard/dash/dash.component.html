@@ -301,10 +301,15 @@
                   *ngIf="statedata.confirmed !== '0' || statedata.active !== '0' || statedata.recovered !== '0' || statedata.deaths !== '0'"
                   [ngClass]="{'totalCount': statedata.state === 'Total'}">
                   <td>
-                    <span [ngClass]="{'totalCount': statedata.state === 'Total'}">{{statedata.state}}</span>
+                    <i class="fa fa-thermometer-empty text-danger" *ngIf="statedata.confirmed < 30"></i>
+                    <i class="fa fa-thermometer-quarter text-danger" *ngIf="statedata.confirmed > 30 && statedata.confirmed < 400"></i>
+                    <i class="fa fa-thermometer-half text-danger" *ngIf="statedata.confirmed > 400 && statedata.confirmed < 800"></i>
+                    <i class="fa fa-thermometer-three-quarters text-danger" *ngIf="statedata.confirmed > 800 && statedata.confirmed < 1000"></i>
+                    <i class="fa fa-thermometer-full text-danger" *ngIf="statedata.confirmed > 1000"></i>
+                    <span [ngClass]="{'text-danger': statedata.confirmed > 950}"> &nbsp; {{statedata.state}}</span>
                   </td>
                   <td>
-                    <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+                    <span [ngClass]="{'text-danger': statedata.confirmed > 950}">
                       {{statedata.confirmed}}
                       <span class="badge badge-warning">
                         <i class="fa fa-arrow-up " *ngIf='statedata.deltaconfirmed > 0'>
@@ -315,19 +320,12 @@
                     </span>
                   </td>
                   <td>
-                    <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+                    <span [ngClass]="{'text-danger': statedata.confirmed > 950}">
                       {{statedata.active}}
-                      <!-- <span class="badge badge-danger">
-                            <i class="fa fa-arrow-up " *ngIf='statedata.delta.active > 0'>
-                                {{statedata.deltaconfirmed}}
-                              {{statedata.delta.active}} New
-                            </i>
-                          </span> -->
-
                     </span>
                   </td>
                   <td>
-                    <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+                    <span [ngClass]="{'text-danger': statedata.confirmed > 950}">
                       {{statedata.recovered}}
                       <span class="badge badge-success">
                         <i class="fa fa-arrow-up " *ngIf='statedata.deltarecovered > 0'>
@@ -339,7 +337,7 @@
                     </span>
                   </td>
                   <td>
-                    <span [ngClass]="{'totalCount': statedata.state === 'Total'}">
+                    <span [ngClass]="{'text-danger': statedata.confirmed > 950}">
                       {{statedata.deaths}}
                       <span class="badge badge-danger">
                         <i class="fa fa-arrow-up " *ngIf='statedata.deltadeaths > 0'>
@@ -351,7 +349,6 @@
                   </td>
                 </tr>
               </ng-container>
-              <!-- *ngIf="statedata.confirmed !== 0 || statedata.active !== 0 || statedata.recovered !== 0 || statedata.deaths !== 0" -->
 
 
             </tbody>
