@@ -41,7 +41,7 @@ export class ClusterComponentComponent implements OnInit {
     private http: HttpClient,
     private spinner: NgxSpinnerService,
     private toastr: ToastrService
-  ) { 
+  ) {
     moment.locale('en');
   }
 
