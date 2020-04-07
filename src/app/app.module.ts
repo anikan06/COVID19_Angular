@@ -21,7 +21,7 @@ import { FooterComponent } from './footer/footer.component';
     HttpClientModule,
     NgxSpinnerModule,
     ToastrModule.forRoot({
-      timeOut: 2000,
+      timeOut: 3000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
       progressBar: true

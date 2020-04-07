@@ -5,6 +5,8 @@ import { StateDetails } from 'src/app/shared/state.model';
 import { DistrictDetails } from 'src/app/shared/district.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import * as moment from 'moment';
+import 'moment/locale/pt-br';
 
 
 @Component({
@@ -39,7 +41,9 @@ export class ClusterComponentComponent implements OnInit {
     private http: HttpClient,
     private spinner: NgxSpinnerService,
     private toastr: ToastrService
-  ) { }
+  ) { 
+    moment.locale('en');
+  }
 
   ngOnInit() {
     this.spinner.show();
@@ -92,7 +96,8 @@ export class ClusterComponentComponent implements OnInit {
         this.totalActive = this.allData.statewise[0].active;
         this.totalRecovered = this.allData.statewise[0].recovered;
         this.totalDeath = this.allData.statewise[0].deaths;
-        this.lastUpdatedTime = this.allData.statewise[0].lastupdatedtime;
+        // this.lastUpdatedTime = this.allData.statewise[0].lastupdatedtime;
+        this.lastUpdatedTime = moment(moment(this.allData.statewise[0].lastupdatedtime).format('DD-MM-YYYY HH:mm')).fromNow();
         // this.todayConfirm = this.allData.key_values[0].confirmeddelta;
         this.todayConfirm = this.allData.statewise[0].deltaconfirmed;
         this.todayActive =

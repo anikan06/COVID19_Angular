@@ -5,6 +5,8 @@ import { LivePatient } from 'src/app/shared/livePatient.modal';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { DashService } from './dash.service';
+import * as moment from 'moment';
+import 'moment/locale/pt-br';
 
 @Component({
   selector: 'app-dash',
@@ -67,6 +69,9 @@ export class DashComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private toastr: ToastrService,
     private dashService: DashService) {
+
+      moment.locale('en');
+
   }
 
   ngOnInit() {
@@ -97,7 +102,11 @@ export class DashComponent implements OnInit {
         this.totalActive = this.allData.statewise[0].active;
         this.totalRecovered = this.allData.statewise[0].recovered;
         this.totalDeath = this.allData.statewise[0].deaths;
-        this.lastUpdatedTime = this.allData.statewise[0].lastupdatedtime;
+        // this.lastUpdatedTime = this.allData.statewise[0].lastupdatedtime;
+        this.lastUpdatedTime = moment(moment(this.allData.statewise[0].lastupdatedtime).format('DD-MM-YYYY HH:mm')).fromNow();
+        // console.log(this.allData.statewise[0].lastupdatedtime);
+        // console.log(moment(this.allData.statewise[0].lastupdatedtime).format('DD-MM-YYYY HH:mm'));
+        // console.log(moment(moment(this.allData.statewise[0].lastupdatedtime).format('DD-MM-YYYY HH:mm')).fromNow());
         // this.todayConfirm = this.allData.key_values[0].confirmeddelta;
         this.todayConfirm = this.allData.statewise[0].deltaconfirmed;
         this.todayActive =
@@ -108,7 +117,7 @@ export class DashComponent implements OnInit {
         this.todayDeath = this.allData.statewise[0].deltadeaths;
       }
       if (data === 'normal') {
-        this.toastr.success('Fetched Data Successfully as on ' + this.lastUpdatedTime);
+        // this.toastr.success('Fetched Data Successfully as on ' + this.lastUpdatedTime);
       }
 
       this.spinner.hide();

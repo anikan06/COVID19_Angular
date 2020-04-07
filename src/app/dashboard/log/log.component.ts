@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-log',
-  templateUrl: './log.component.html',
+  templateUrl: './log.component.html', 
   styleUrls: ['./log.component.scss']
 })
 export class LogComponent implements OnInit {
@@ -54,7 +54,7 @@ export class LogComponent implements OnInit {
 
   periodicFetch(data) {
     if (data === 'inside') {
-      this.toastr.info((_.head(this.newLogArr)).update);
+      this.toastr.info('Latest Update: ' + (_.head(this.newLogArr)).update);
     }
   }
 
