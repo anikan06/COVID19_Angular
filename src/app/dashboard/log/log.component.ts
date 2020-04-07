@@ -54,7 +54,7 @@ export class LogComponent implements OnInit {
 
   periodicFetch(data) {
     if (data === 'inside') {
-      this.toastr.warning('Latest Update: ' + (_.head(this.newLogArr)).update);
+      this.toastr.warning('Latest: ' + (_.head(this.newLogArr)).update);
     }
   }
 
