@@ -3,14 +3,21 @@
     <div class="card bg-info my-2 border-0 rounded-0 w-100" *ngFor="let logs of newLogArr; let i=index ">
         <div class="card-body px-3 py-1">
             <div class="row mx-auto p-0">
-                <span class="txtM text-light">
-                <i class="fa fa-snowflake-o text-dark"></i>  {{logs.update}}
-                </span>
+                <div class="col-1">
+                    <i class="fa fa-snowflake-o text-dark"></i>
+
+                </div>
+                <div class="col-10 px-1">
+                    <span class="txtM text-light">
+                        <pre class="txtM text-light d-inline"> {{logs.update}}</pre>
+                        <!-- <span class="label" [innerHTML]="logs.update"></span>  -->
+                    </span>
+                </div>
             </div>
         </div>
         <div class="card-footer px-3 py-1">
             <div class="row mx-auto d-flex justify-content-end text-light tmstmp">
-                    <i class="fa fa-clock-o text-light"></i> &nbsp; {{logs.time}}
+                <i class="fa fa-clock-o text-light"></i> &nbsp; {{logs.time}}
             </div>
         </div>
     </div>
