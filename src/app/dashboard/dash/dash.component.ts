@@ -116,7 +116,7 @@ export class DashComponent implements OnInit {
         this.todayRecover = this.allData.statewise[0].deltarecovered;
         this.todayDeath = this.allData.statewise[0].deltadeaths;
       }
-      if (data === 'normal') {
+      if (data === 'normal') { 
         // this.toastr.success('Fetched Data Successfully as on ' + this.lastUpdatedTime);
       }
 

@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-log',
   templateUrl: './log.component.html',
   styleUrls: ['./log.component.scss']
-})
+}) 
 export class LogComponent implements OnInit {
 
   logUrl = 'https://api.covid19india.org/updatelog/log.json';

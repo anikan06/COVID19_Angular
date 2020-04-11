@@ -1,0 +1,73 @@
+<div class="container-fluid dash-container w-100">
+    <div class="row mx-auto w-100 my-3">
+        <div class="col-12 col-md-8">
+            <span class="hTxt">Essential Service Availability check</span>
+        </div>
+    </div>
+
+    <div class="row mx-auto w-100 my-2">
+        <div class="card w-100">
+            <div class="card-body p-2 p-md-2">
+                <div class="row mx-auto">
+                    <div class="col-12 col-md-3 px-0 px-md-2 py-2">
+                        <select class="form-control form-control-sm" name="selectedState" [(ngModel)]="selectedState"
+                            #selState="ngModel" (change)="getCity(selState.value)">
+                            <option value='Select State'>Select State</option>
+                            <option *ngFor='let state of allNewState' [ngValue]="state">{{state}}</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-3 px-0 px-md-2 py-2">
+                        <select class="form-control form-control-sm" name="selectedCity" [(ngModel)]="selectedCity"
+                            #selCity="ngModel" (change)="getCategory(selCity.value)">
+                            <option value='Select City'>Select City</option>
+                            <option *ngFor='let city of allNewCities' [ngValue]="city">{{city}}</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-5 px-0 px-md-2 py-2">
+                        <select class="form-control form-control-sm" name="selectedCategory"
+                            [(ngModel)]="selectedCategory" #selCat="ngModel">
+                            <option value='Select Category'>Select Category</option>
+                            <option *ngFor='let cat of allNewCategory' [ngValue]="cat">{{cat}}</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-1 d-flex justiy-content-center py-2">
+
+                        <button class="btn btn-block btn-sm btn-info"
+                            (click)='getFilterData(selCat.value)'>Load Data</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mx-auto w-100 my-2" *ngIf="selCat.value !== 'Select Category'">
+        <div class="card w-100">
+            <div class="card-header bg-secondary">
+                <span class="text-light">State: {{selState.value}} | City: {{selCity.value}}  </span>
+            </div>
+            <div class="card-body p-0 p-md-2">
+                <div class="row mx-auto d-flex justify-content-start py-3 px-3">
+                    <span class="text-info tdSt font-bold">{{selCat.value}}</span>
+                </div>
+                <table class="table table-hover table-responsive">
+                    <thead>
+                        <tr>
+                            <th class="tdSth" scope="col">Phone</th>
+                            <th class="tdSth" scope="col">Website</th>
+                            <th class="tdSth" scope="col">Organisation</th>
+                            <th class="tdSth"scope="col">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let filterData of filteredData">
+                            <td class="tdSt">{{filterData.phonenumber}}</td>
+                            <td class="tdSt"><a class="tdSt" href="{{filterData.contact}}" target="_blank">Visit</a></td>
+                            <td class="tdSt">{{filterData.nameoftheorganisation}}</td>
+                            <td class="tdSt">{{filterData.descriptionandorserviceprovided}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

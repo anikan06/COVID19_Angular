@@ -24,6 +24,10 @@ const routes: Routes = [
       {
         path: 'Help',
         loadChildren: 'src/app/help/help.module#HelpModule'
+      },
+      {
+        path: 'Service-Availablity',
+        loadChildren: 'src/app/essential-mod/essential-mod.module#EssentialModModule'
       }
     ]
   }
