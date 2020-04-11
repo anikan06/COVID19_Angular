@@ -52,6 +52,7 @@ export class ServicesAvailablityComponent implements OnInit {
 
   getCategory(citySel) {
     this.session.set('city', citySel);
+    this.filteredData = [];
     this.allNewCategory = [];
     this.allNewCategory = this.availSer.getRawCategory(this.allData.resources, citySel);
     console.log(this.allNewCategory);

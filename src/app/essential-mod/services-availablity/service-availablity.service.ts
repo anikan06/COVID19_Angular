@@ -49,6 +49,7 @@ export class ServiceAvailablityService {
   getRawCategory(allDta, cat) {
     if (allDta.length !== 0 && allDta.length !== undefined) {
       this.allCities = [];
+      this.filterData = [];
       allDta.forEach(ele => {
         if (cat === ele.city) {
 
