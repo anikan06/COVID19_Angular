@@ -37,7 +37,7 @@ export class ServiceAvailablityService {
       allDt.forEach(ele => {
         if (dt === ele.state) {
 
-          const ctyTmp = ele.city;
+          const ctyTmp = ele;
           this.allCities.push(ctyTmp);
         }
       });
@@ -50,12 +50,13 @@ export class ServiceAvailablityService {
     if (allDta.length !== 0 && allDta.length !== undefined) {
       this.allCities = [];
       this.filterData = [];
+      this.allCtgry = [];
       allDta.forEach(ele => {
         if (cat === ele.city) {
 
-          const ctTmp = ele.category;
+          const ctTmp = ele;
           this.allCtgry.push(ctTmp);
-          
+
         }
       });
     }
@@ -63,18 +64,14 @@ export class ServiceAvailablityService {
     return _.uniq(this.allCtgry);
   }
 
-  getFilterData(allData, st, ct, val) {
+  getFilterData(allData, val) {
     if (allData.length !== 0 && allData.length !== undefined) {
       this.filterData = [];
       allData.forEach(ele => {
-        if (st === ele.state) {
-          if (ct === ele.city) {
-            if (val === ele.category) {
+        if (val === ele.category) {
 
-              const ctTmp = ele;
-              this.filterData.push(ctTmp);
-            }
-          }
+          const ctTmp = ele;
+          this.filterData.push(ctTmp);
         }
 
       });
