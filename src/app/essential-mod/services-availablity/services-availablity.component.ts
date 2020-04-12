@@ -49,7 +49,7 @@ export class ServicesAvailablityComponent implements OnInit {
     this.getData();
   }
 
-  getCity(stateSel) { 
+  getCity(stateSel) {
     this.session.set('state', stateSel);
     this.allNewCities = [];
     this.stateSortedData = this.availSer.getRawCity(this.allData.resources, stateSel);
