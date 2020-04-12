@@ -1,4 +1,6 @@
 .dash-container {
+    overflow-x: hidden !important;
+
     .label {
         font-size     : 1em;
         font-weight   : 600;
@@ -15,11 +17,11 @@
     }
 
     .img100 {
-        width: 100px;
+        width : 100px;
         height: 100px;
     }
-    .algn{
-        margin-top:5px;
+
+    .algn {
+        margin-top: 5px;
     }
 }
-
