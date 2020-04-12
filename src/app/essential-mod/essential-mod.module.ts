@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { EssentialModRoutingModule } from './essential-mod-routing.module';
 import { ServicesAvailablityComponent } from './services-availablity/services-availablity.component';
-import { AngularWebStorageModule } from 'angular-web-storage';
+// import { AngularWebStorageModule } from 'angular-web-storage';
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import { AngularWebStorageModule } from 'angular-web-storage';
     CommonModule,
     EssentialModRoutingModule,
     FormsModule,
-    AngularWebStorageModule
+    // AngularWebStorageModule
   ]
 })
 export class EssentialModModule { }

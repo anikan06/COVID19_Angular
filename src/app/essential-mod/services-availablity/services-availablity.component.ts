@@ -9,7 +9,7 @@ import * as moment from 'moment';
 import 'moment/locale/pt-br';
 import { ServiceAvailablityService } from './service-availablity.service';
 import { ResponseObject } from './service-availability.model';
-import { SessionStorageService } from 'angular-web-storage';
+// import { SessionStorageService } from 'angular-web-storage';
 
 @Component({
   selector: 'app-services-availablity',
@@ -42,7 +42,7 @@ export class ServicesAvailablityComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private toastr: ToastrService,
     private availSer: ServiceAvailablityService,
-    private session: SessionStorageService
+    // private session: SessionStorageService
   ) { }
 
   ngOnInit() {
@@ -50,14 +50,14 @@ export class ServicesAvailablityComponent implements OnInit {
   }
 
   getCity(stateSel) {
-    this.session.set('state', stateSel);
+    // this.session.set('state', stateSel);
     this.allNewCities = [];
     this.stateSortedData = this.availSer.getRawCity(this.allData.resources, stateSel);
     this.allNewCities = _.uniq(_.map(this.stateSortedData, 'city'));
   }
 
   getCategory(citySel) {
-    this.session.set('city', citySel);
+    // this.session.set('city', citySel);
     this.filteredData = [];
     this.citySortedData = [];
     this.citySortedData = this.availSer.getRawCategory(this.stateSortedData, citySel);
@@ -67,8 +67,8 @@ export class ServicesAvailablityComponent implements OnInit {
 
   getFilterData(selDt) {
     this.filteredData = [];
-    this.stateSelected = this.session.get('state');
-    this.citySelected = this.session.get('city');
+    // this.stateSelected = this.session.get('state');
+    // this.citySelected = this.session.get('city');
     this.filteredData = this.availSer.getFilterData(this.citySortedData, selDt);
   }
 
