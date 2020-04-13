@@ -103,10 +103,10 @@ export class DashComponent implements OnInit {
         this.totalRecovered = this.allData.statewise[0].recovered;
         this.totalDeath = this.allData.statewise[0].deaths;
         // this.lastUpdatedTime = this.allData.statewise[0].lastupdatedtime;
-        this.lastUpdatedTime = moment(moment(this.allData.statewise[0].lastupdatedtime).format('DD-MM-YYYY HH:mm')).fromNow();
+        this.lastUpdatedTime = moment(moment(this.allData.statewise[0].lastupdatedtime, 'DD/MM/YYYY HH:mm').format('lll')).fromNow();
         // console.log(this.allData.statewise[0].lastupdatedtime);
-        // console.log(moment(this.allData.statewise[0].lastupdatedtime).format('DD-MM-YYYY HH:mm'));
-        // console.log(moment(moment(this.allData.statewise[0].lastupdatedtime).format('DD-MM-YYYY HH:mm')).fromNow());
+        // console.log(moment(this.allData.statewise[0].lastupdatedtime, 'DD/MM/YYYY HH:mm').format('DD-MM-YYYY HH:mm'));
+        // console.log(moment(moment(this.allData.statewise[0].lastupdatedtime, 'DD/MM/YYYY HH:mm').format('lll')).fromNow());
         // this.todayConfirm = this.allData.key_values[0].confirmeddelta;
         this.todayConfirm = this.allData.statewise[0].deltaconfirmed;
         this.todayActive =
