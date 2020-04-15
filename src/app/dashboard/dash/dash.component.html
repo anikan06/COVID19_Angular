@@ -1,16 +1,15 @@
 <div class="container-fluid dash-container w-100">
   <ngx-spinner></ngx-spinner>
-  <!-- <div class="alert alert-danger" role="alert" *ngIf="notifyAlrt">
+  <div class="alert alert-danger" role="alert" *ngIf="notifyAlrt">
     <div class="row mx-auto">
       <div class="col-10">
-        <i class="fa fa-exclamation" aria-hidden="true"></i> New feature: Check Service tab to check
-        service availablity in your city like food and essential delivery etc.
+        <i class="fa fa-exclamation" aria-hidden="true"></i> New feature: Go to Cluster > Search for a State details and get all the related data like how many got tested and what is the result.
       </div>
       <div class="col-2 d-flex justify-content-end">
         <i class="fa fa-times text-right" (click)="clrAlrt('notify')"></i>
       </div>
     </div>
-  </div> -->
+  </div>
   <div class="alert alert-success" role="alert" *ngIf="closeAlrt">
     <div class="row mx-auto">
       <div class="col-10">
@@ -281,7 +280,7 @@
 
   <div class="row mx-auto w-100 my-2 px-0">
     <div class="card-group w-100">
-      <div class="card col-12 col-md-9 w-100 mx-1 px-0">
+      <div class="card col-12 col-md-8 w-100 mx-1 px-0">
         <div class="card-header bg-secondary text-light">
           State wise Data
         </div>
@@ -356,7 +355,7 @@
           </table>
         </div>
       </div>
-      <div class="card col-12 col-md-3 mx- px-0">
+      <div class="card col-12 col-md-4 mx- px-0">
         <div class="card-header bg-secondary text-light">
           Today's Update's
         </div>

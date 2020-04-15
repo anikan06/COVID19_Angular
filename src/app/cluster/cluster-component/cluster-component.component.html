@@ -1,5 +1,5 @@
 <div class="container-fluid cluster-container w-100">
-    <ngx-spinner></ngx-spinner>
+  <ngx-spinner></ngx-spinner>
   <div class="row mx-auto w-100 my-3">
     <div class="col-12 col-md-8">
       <span class="hTxt">District Wise Tracker</span>
@@ -10,136 +10,136 @@
   </div>
 
   <div class="row mx-auto w-100 my-2">
-        <div class="col-12 col-md-3 px-1 py-2">
-            <div class="card text-center w-100">
-              <div class="card-body bg-info p-2">
-                <div class="row mx-auto">
-                  <div class="col-3 border-right py-4">
-                      <i class="fa fa-users fa-2x text-light"></i><br/>
-                  </div>
-                  <div class="col-9">
-                    <div class="row mx-auto d-flex justify-content-center border-bottom">
-                        <div class="col-12 smBgT">
-                            Confirmed
-                          </div>
-                          <div class="col-12 smTxt">
-                            {{totalConfirmed}}
-                          </div>
-                    </div>
-                    <div class="row mx-auto d-flex justify-content-center">
-                        <div class="col-12 smBgTc">
-                            Today's
-                          </div>
-                          <div class="col-12 smTxtm">
-                            +{{todayConfirm}}
-                          </div>
-                    </div>
-                  </div>
+    <div class="col-12 col-md-3 px-1 py-2">
+      <div class="card text-center w-100">
+        <div class="card-body bg-info p-2">
+          <div class="row mx-auto">
+            <div class="col-3 border-right py-4">
+              <i class="fa fa-users fa-2x text-light"></i><br />
+            </div>
+            <div class="col-9">
+              <div class="row mx-auto d-flex justify-content-center border-bottom">
+                <div class="col-12 smBgT">
+                  Confirmed
+                </div>
+                <div class="col-12 smTxt">
+                  {{totalConfirmed}}
                 </div>
               </div>
-  
-  
-  
-            </div>
-          </div>
-        <div class="col-12 col-md-3 px-1 py-2">
-            <div class="card text-center w-100">
-              <div class="card-body bg-warning p-2">
-                <div class="row mx-auto">
-                  <div class="col-3 border-right py-4">
-                      <i class="fa fa-user-md fa-2x text-light"></i><br/>
-                  </div>
-                  <div class="col-9">
-                    <div class="row mx-auto d-flex justify-content-center border-bottom">
-                        <div class="col-12 smBgT">
-                            Active
-                          </div>
-                          <div class="col-12 smTxt">
-                            {{totalActive}}
-                          </div>
-                    </div>
-                    <div class="row mx-auto d-flex justify-content-center">
-                        <div class="col-12 smBgTc">
-                            Today's
-                          </div>
-                          <div class="col-12 smTxtm">
-                            +{{todayActive}}
-                          </div>
-                    </div>
-                  </div>
+              <div class="row mx-auto d-flex justify-content-center">
+                <div class="col-12 smBgTc">
+                  Today's
+                </div>
+                <div class="col-12 smTxtm">
+                  +{{todayConfirm}}
                 </div>
               </div>
-  
-  
-  
             </div>
           </div>
-        <div class="col-12 col-md-3 px-1 py-2">
-            <div class="card text-center w-100">
-              <div class="card-body bg-success p-2">
-                <div class="row mx-auto">
-                  <div class="col-3 border-right py-4">
-                      <i class="fa fa-user-o fa-2x text-light"></i><br/>
-                  </div>
-                  <div class="col-9">
-                    <div class="row mx-auto d-flex justify-content-center border-bottom">
-                        <div class="col-12 smBgT">
-                            Recovered
-                          </div>
-                          <div class="col-12 smTxt">
-                            {{totalRecovered}}
-                          </div>
-                    </div>
-                    <div class="row mx-auto d-flex justify-content-center">
-                        <div class="col-12 smBgTc">
-                            Today's
-                          </div>
-                          <div class="col-12 smTxtm">
-                            +{{todayRecover}}
-                          </div>
-                    </div>
-                  </div>
+        </div>
+
+
+
+      </div>
+    </div>
+    <div class="col-12 col-md-3 px-1 py-2">
+      <div class="card text-center w-100">
+        <div class="card-body bg-warning p-2">
+          <div class="row mx-auto">
+            <div class="col-3 border-right py-4">
+              <i class="fa fa-user-md fa-2x text-light"></i><br />
+            </div>
+            <div class="col-9">
+              <div class="row mx-auto d-flex justify-content-center border-bottom">
+                <div class="col-12 smBgT">
+                  Active
+                </div>
+                <div class="col-12 smTxt">
+                  {{totalActive}}
                 </div>
               </div>
-  
-  
-  
-            </div>
-          </div>
-        <div class="col-12 col-md-3 px-1 py-2">
-            <div class="card text-center w-100">
-              <div class="card-body bg-danger p-2">
-                <div class="row mx-auto">
-                  <div class="col-3 border-right py-4">
-                      <i class="fa fa-user-times fa-2x text-light"></i><br/>
-                  </div>
-                  <div class="col-9">
-                    <div class="row mx-auto d-flex justify-content-center border-bottom">
-                        <div class="col-12 smBgT">
-                            Death
-                          </div>
-                          <div class="col-12 smTxt">
-                            {{totalDeath}}
-                          </div>
-                    </div>
-                    <div class="row mx-auto d-flex justify-content-center">
-                        <div class="col-12 smBgTc">
-                            Today's
-                          </div>
-                          <div class="col-12 smTxtm">
-                            +{{todayDeath}}
-                          </div>
-                    </div>
-                  </div>
+              <div class="row mx-auto d-flex justify-content-center">
+                <div class="col-12 smBgTc">
+                  Today's
+                </div>
+                <div class="col-12 smTxtm">
+                  +{{todayActive}}
                 </div>
               </div>
-  
-  
-  
             </div>
           </div>
-  
-      <!-- <div class="col">
+        </div>
+
+
+
+      </div>
+    </div>
+    <div class="col-12 col-md-3 px-1 py-2">
+      <div class="card text-center w-100">
+        <div class="card-body bg-success p-2">
+          <div class="row mx-auto">
+            <div class="col-3 border-right py-4">
+              <i class="fa fa-user-o fa-2x text-light"></i><br />
+            </div>
+            <div class="col-9">
+              <div class="row mx-auto d-flex justify-content-center border-bottom">
+                <div class="col-12 smBgT">
+                  Recovered
+                </div>
+                <div class="col-12 smTxt">
+                  {{totalRecovered}}
+                </div>
+              </div>
+              <div class="row mx-auto d-flex justify-content-center">
+                <div class="col-12 smBgTc">
+                  Today's
+                </div>
+                <div class="col-12 smTxtm">
+                  +{{todayRecover}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+    <div class="col-12 col-md-3 px-1 py-2">
+      <div class="card text-center w-100">
+        <div class="card-body bg-danger p-2">
+          <div class="row mx-auto">
+            <div class="col-3 border-right py-4">
+              <i class="fa fa-user-times fa-2x text-light"></i><br />
+            </div>
+            <div class="col-9">
+              <div class="row mx-auto d-flex justify-content-center border-bottom">
+                <div class="col-12 smBgT">
+                  Death
+                </div>
+                <div class="col-12 smTxt">
+                  {{totalDeath}}
+                </div>
+              </div>
+              <div class="row mx-auto d-flex justify-content-center">
+                <div class="col-12 smBgTc">
+                  Today's
+                </div>
+                <div class="col-12 smTxtm">
+                  +{{todayDeath}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <!-- <div class="col">
         <div class="card text-center w-100">
           <div class="card-header bg-info border-0 pb-0">
             <span class="cdHd">
@@ -166,7 +166,7 @@
           </div>
         </div>
       </div> -->
-      <!-- <div class="col">
+    <!-- <div class="col">
         <div class="card text-center w-100">
           <div class="card-header bg-warning border-0 pb-0">
             <span class="cdHd">
@@ -193,7 +193,7 @@
           </div>
         </div>
       </div> -->
-      <!-- <div class="col">
+    <!-- <div class="col">
         <div class="card text-center w-100">
           <div class="card-header bg-success border-0 pb-0">
             <span class="cdHd">
@@ -220,7 +220,7 @@
           </div>
         </div>
       </div> -->
-      <!-- <div class="col">
+    <!-- <div class="col">
         <div class="card  text-center w-100">
           <div class="card-header bg-danger border-0 pb-0">
             <span class="cdHd">
@@ -247,45 +247,176 @@
           </div>
         </div>
       </div> -->
-    </div>
+  </div>
 
-    <div class="row mx-auto w-100 my-2">
-        <div class="col-12 col-sm-6 col-md-3 py-3" *ngFor="let stateWise of stateDetailedList;let i=index">
-            <div class="card">
-                <div class="card-header bg-secondary text-white">
-                    {{stateWise.name}}
-                </div>
-                <div class="card-body crdHt p-0">
-                    <table class="table table-striped w-100">
-                        <thead>
-                            <tr>
-                                <th scope="col">District</th>
-                                <th scope="col">Confirmed</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor='let disData of stateWise.details'>
-                                <td>
-                                    <span>
-                                        {{disData.name}}
-                                    </span>
-                                </td>
-                                <td>
-                                    <span>
-                                        {{disData.details.confirmed}}
-                                    </span>
-                                    <span class="badge badge-danger">
-                                        <i class="fa fa-arrow-up" *ngIf='disData.details.delta.confirmed > 0'>
-                                          {{disData.details.delta.confirmed}} New
-                                        </i>
-                                      </span>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+  <div class="row mx-auto w-100 my-2">
+    <div class="card w-100">
+      <div class="card-header">
+        <label>Search State </label>
+        <div class="input-group">
+          <input type="text" class="form-control form-control-sm text-capitalize" placeholder="Search by Patient ID" #searchState
+            aria-label="Search State" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button (click)="onKeySearch(searchState.value)" class="btn btn-sm btn-info"><i
+                class="fa fa-search"></i></button>
+            <button (click)="clearSearch()" class="btn btn-sm btn-danger" *ngIf="clrSrch"><i
+                class="fa fa-times"></i></button>
+          </div>
         </div>
+      </div>
+      <div class="card-body px-1"  *ngIf = '!swtchView'>
+        <div class="row mx-auto w-100 my-2">
+          <div class="col-md-2 col-6 px-1"> 
+            <div class="card-counter primary">
+              <i class="fa fa-users"></i>
+              <span class="count-numbers">{{srchCnf}}</span>
+              <span class="count-name">Confirmed</span>
+            </div>
+          </div>
+      
+          <div class="col-md-2 col-6 px-1">
+            <div class="card-counter success-ac">
+              <i class="fa fa-user-o"></i>
+              <span class="count-numbers">{{srchRcv}}</span>
+              <span class="count-name">Recoverd</span>
+            </div>
+          </div>
+      
+          <div class="col-md-2 col-6 px-1">
+            <div class="card-counter warning">
+              <i class="fa fa-user"></i>
+              <span class="count-numbers">{{srchAct}}</span>
+              <span class="count-name">Active</span>
+            </div>
+          </div>
+      
+          <div class="col-md-2 col-6 px-1">
+            <div class="card-counter danger-dt">
+              <i class="fa fa-user-times"></i>
+              <span class="count-numbers">{{srchDt}}</span>
+              <span class="count-name">Death</span>
+            </div>
+          </div>
+
+          <div class="col-md-2 col-6 px-1">
+            <div class="card-counter info">
+              <i class="fa fa-thermometer-half"></i>
+              <span class="count-numbers">{{totaltested}}</span>
+              <span class="count-name">Total Tested</span>
+            </div>
+          </div>
+
+          <div class="col-md-2 col-6 px-1">
+            <div class="card-counter alert">
+              <i class="fa fa-user-secret"></i>
+              <span class="count-numbers">{{unconfirmed}}</span>
+              <span class="count-name">Unconfirmed Cases</span>
+            </div>
+          </div>
+          <div class="col-md-2 col-6 px-1">
+            <div class="card-counter danger">
+              <i class="fa fa-plus-circle"></i>
+              <span class="count-numbers">{{positive}}</span>
+              <span class="count-name">Positive Cases</span>
+            </div>
+          </div>
+
+          <div class="col-md-2 col-6 px-1">
+            <div class="card-counter success">
+              <i class="fa fa-minus-circle"></i>
+              <span class="count-numbers">{{negative}}</span>
+              <span class="count-name">Negetive cases</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mx-auto w-100 my-2">
+          <div class="row mx-auto d-flex justify-content-center">
+            <span class="text-info">Tested data last updated on {{updatedOn}} </span>
+          </div>
+        </div>
+
+        <div class="row mx-auto w-100 my-2">
+          <div class="col-12 col-sm-6 col-md-3 py-3" *ngFor="let stateWise of nwAr;let i=index">
+            <div class="card">
+              <div class="card-header bg-secondary text-white">
+                {{stateWise.name}}
+              </div>
+              <div class="card-body crdHt p-0">
+                <table class="table table-striped w-100">
+                  <thead>
+                    <tr>
+                      <th scope="col">District</th>
+                      <th scope="col">Confirmed</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor='let disData of stateWise.details'>
+                      <td>
+                        <span>
+                          {{disData.name}}
+                        </span>
+                      </td>
+                      <td>
+                        <span>
+                          {{disData.details.confirmed}}
+                        </span>
+                        <span class="badge badge-danger">
+                          <i class="fa fa-arrow-up" *ngIf='disData.details.delta.confirmed > 0'>
+                            {{disData.details.delta.confirmed}} New
+                          </i>
+                        </span>
+                      </td>
+                    </tr>
+      
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="row mx-auto w-100 my-2" *ngIf = 'swtchView'>
+    <div class="col-12 col-sm-6 col-md-3 py-3" *ngFor="let stateWise of stateDetailedList;let i=index">
+      <div class="card">
+        <div class="card-header bg-secondary text-white">
+          {{stateWise.name}}
+        </div>
+        <div class="card-body crdHt p-0">
+          <table class="table table-striped w-100">
+            <thead>
+              <tr>
+                <th scope="col">District</th>
+                <th scope="col">Confirmed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let disData of stateWise.details'>
+                <td>
+                  <span>
+                    {{disData.name}}
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    {{disData.details.confirmed}}
+                  </span>
+                  <span class="badge badge-danger">
+                    <i class="fa fa-arrow-up" *ngIf='disData.details.delta.confirmed > 0'>
+                      {{disData.details.delta.confirmed}} New
+                    </i>
+                  </span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </div>
