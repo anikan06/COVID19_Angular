@@ -155,7 +155,7 @@ export class ClusterComponentComponent implements OnInit {
     this.swtchView = false;
     this.nwAr = [];
     this.lArr = [];
-    
+
     let resData = {};
     this.clrSrch = true;
     const tempVal = this.titlecasePipe.transform(value);
@@ -191,12 +191,12 @@ export class ClusterComponentComponent implements OnInit {
         this.negative = tempObj.negative;
         this.updatedOn = tempObj.updatedon;
       }
-      
+
     });
 
 
   }
-  
+
 
   clearSearch() {
     this.getStateList();
