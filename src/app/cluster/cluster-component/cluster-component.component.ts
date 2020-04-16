@@ -58,6 +58,8 @@ export class ClusterComponentComponent implements OnInit {
   unconfirmed: string;
   negative: string;
   updatedOn: string;
+  btnhd = false;
+  agoUpdatedOn: string;
 
 
   constructor(
@@ -155,7 +157,7 @@ export class ClusterComponentComponent implements OnInit {
     this.swtchView = false;
     this.nwAr = [];
     this.lArr = [];
-
+    this.btnhd = true;
     let resData = {};
     this.clrSrch = true;
     const tempVal = this.titlecasePipe.transform(value);
@@ -183,13 +185,26 @@ export class ClusterComponentComponent implements OnInit {
       console.log(this.newStateTestData);
       let tempObj = new TestData();
       tempObj = _.last(this.newStateTestData);
-      console.log(tempObj);
-      if (tempObj !== null && tempObj !== undefined) {
+      let prevTempObj = new TestData();
+      prevTempObj = _.nth(this.newStateTestData, -2);
+      let todayDt = (moment(new Date()).format('DD/MM/YYYY'));
+      console.log(prevTempObj);
+
+      if (tempObj.totaltested !== '') {
         this.totaltested = tempObj.totaltested;
         this.positive = tempObj.positive;
         this.unconfirmed = tempObj.unconfirmed;
         this.negative = tempObj.negative;
         this.updatedOn = tempObj.updatedon;
+        this.agoUpdatedOn =moment(moment(tempObj.updatedon, 'DD/MM/YYYY').format('ll')).fromNow();
+      }
+
+      if (tempObj.totaltested === ''){
+        this.totaltested = prevTempObj.totaltested;
+        this.positive = prevTempObj.positive;
+        this.unconfirmed = prevTempObj.unconfirmed;
+        this.negative = prevTempObj.negative;
+        this.updatedOn = prevTempObj.updatedon;
       }
 
     });
@@ -199,6 +214,7 @@ export class ClusterComponentComponent implements OnInit {
 
 
   clearSearch() {
+    this.btnhd = false;
     this.getStateList();
     this.searchState.nativeElement.value = '';
   }

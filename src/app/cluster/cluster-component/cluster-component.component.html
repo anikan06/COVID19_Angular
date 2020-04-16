@@ -259,14 +259,14 @@
           <div class="input-group-append">
             <button (click)="onKeySearch(searchState.value)" class="btn btn-sm btn-info"><i
                 class="fa fa-search"></i></button>
-            <button (click)="clearSearch()" class="btn btn-sm btn-danger" *ngIf="clrSrch"><i
+            <button (click)="clearSearch()" class="btn btn-sm btn-danger" *ngIf="btnhd"><i
                 class="fa fa-times"></i></button>
           </div>
         </div>
       </div>
       <div class="card-body px-1"  *ngIf = '!swtchView'>
         <div class="row mx-auto w-100 my-2">
-          <div class="col-md-2 col-6 px-1"> 
+          <div class="col-md-3 col-6 px-1"> 
             <div class="card-counter primary">
               <i class="fa fa-users"></i>
               <span class="count-numbers">{{srchCnf}}</span>
@@ -274,7 +274,7 @@
             </div>
           </div>
       
-          <div class="col-md-2 col-6 px-1">
+          <div class="col-md-3 col-6 px-1">
             <div class="card-counter success-ac">
               <i class="fa fa-user-o"></i>
               <span class="count-numbers">{{srchRcv}}</span>
@@ -282,7 +282,7 @@
             </div>
           </div>
       
-          <div class="col-md-2 col-6 px-1">
+          <div class="col-md-3 col-6 px-1">
             <div class="card-counter warning">
               <i class="fa fa-user"></i>
               <span class="count-numbers">{{srchAct}}</span>
@@ -290,7 +290,7 @@
             </div>
           </div>
       
-          <div class="col-md-2 col-6 px-1">
+          <div class="col-md-3 col-6 px-1">
             <div class="card-counter danger-dt">
               <i class="fa fa-user-times"></i>
               <span class="count-numbers">{{srchDt}}</span>
@@ -298,7 +298,11 @@
             </div>
           </div>
 
-          <div class="col-md-2 col-6 px-1">
+          <div class="col-12 col-md-12 d-flex justify-content-center my-2">
+            <span class="alert alert-warning mb-0">Tested data last updated on {{agoUpdatedOn}} (i.e. {{updatedOn}}) </span>
+          </div>
+
+          <div class="col-md-3 col-6 px-1">
             <div class="card-counter info">
               <i class="fa fa-thermometer-half"></i>
               <span class="count-numbers">{{totaltested}}</span>
@@ -306,14 +310,14 @@
             </div>
           </div>
 
-          <div class="col-md-2 col-6 px-1">
+          <div class="col-md-3 col-6 px-1">
             <div class="card-counter alert">
               <i class="fa fa-user-secret"></i>
               <span class="count-numbers">{{unconfirmed}}</span>
               <span class="count-name">Unconfirmed Cases</span>
             </div>
           </div>
-          <div class="col-md-2 col-6 px-1">
+          <div class="col-md-3 col-6 px-1">
             <div class="card-counter danger">
               <i class="fa fa-plus-circle"></i>
               <span class="count-numbers">{{positive}}</span>
@@ -321,7 +325,7 @@
             </div>
           </div>
 
-          <div class="col-md-2 col-6 px-1">
+          <div class="col-md-3 col-6 px-1">
             <div class="card-counter success">
               <i class="fa fa-minus-circle"></i>
               <span class="count-numbers">{{negative}}</span>
@@ -330,11 +334,11 @@
           </div>
         </div>
 
-        <div class="row mx-auto w-100 my-2">
+        <!-- <div class="row mx-auto w-100 my-2">
           <div class="row mx-auto d-flex justify-content-center">
             <span class="text-info">Tested data last updated on {{updatedOn}} </span>
           </div>
-        </div>
+        </div> -->
 
         <div class="row mx-auto w-100 my-2">
           <div class="col-12 col-sm-6 col-md-3 py-3" *ngFor="let stateWise of nwAr;let i=index">
