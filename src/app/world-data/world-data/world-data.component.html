@@ -1,25 +1,26 @@
 <div class="container-fluid world-data-container w-100 py-3">
-    <div class="card">
-        <div class="card-header bg-secondary">
-            <span class="lblTxt text-light">World wide data as of {{lastUpdated}}</span>
-        </div>
-        <div class="card-body">
-                <div class="row mx-auto w-100  card-cstm-bdy">
-                        <div class="col-12 col-md-3">
-                            <div class="card crd card-stats">
-                                <div class="card-header crd-bl-hd crd-hd card-header-warning card-header-icon">
-                                    <div class="card-icon crbl">
-                                        <i class="fa fa-ambulance fa-2x"></i>
+    <div class="row mx-auto w-100">
+            <div class="card w-100">
+                    <div class="card-header bg-secondary">
+                        <span class="lblTxt text-light">World wide data as of {{lastUpdated}}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mx-auto w-100  card-cstm-bdy">
+                            <div class="col-12 col-md-3">
+                                <div class="card crd card-stats">
+                                    <div class="card-header crd-bl-hd crd-hd card-header-warning card-header-icon">
+                                        <div class="card-icon crbl">
+                                            <i class="fa fa-ambulance fa-2x"></i>
+                                        </div>
+                                        <p class="card-category text-uppercase">Total Cases</p>
+                                        <h3 class="card-title">
+                                            {{totalCnf}}
+                                            <!-- <small> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 32 </small> -->
+                                        </h3>
                                     </div>
-                                    <p class="card-category text-uppercase">Total Cases</p>
-                                    <h3 class="card-title">
-                                        {{totalCnf}}
-                                        <!-- <small> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 32 </small> -->
-                                    </h3>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-md-3">
+                            <div class="col-12 col-md-3">
                                 <div class="card crd card-stats">
                                     <div class="card-header crd-wr-hd crd-hd card-header-warning card-header-icon">
                                         <div class="card-icon crwrning">
@@ -27,42 +28,93 @@
                                         </div>
                                         <p class="card-category text-uppercase">Total Active</p>
                                         <h3 class="card-title">
-                                                {{totalAct}}
+                                            {{totalAct}}
                                             <!-- <small> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 32 </small> -->
                                         </h3>
                                     </div>
                                 </div>
                             </div>
-                        <div class="col-12 col-md-3">
-                            <div class="card crd card-stats">
-                                <div class="card-header crd-gr-hd crd-hd card-header-warning card-header-icon">
-                                    <div class="card-icon crgr">
-                                        <i class="fa fa-user-md fa-2x"></i>
-                                    </div>
-                                    <p class="card-category text-uppercase">Total Recovered</p>
-                                    <h3 class="card-title">
+                            <div class="col-12 col-md-3">
+                                <div class="card crd card-stats">
+                                    <div class="card-header crd-gr-hd crd-hd card-header-warning card-header-icon">
+                                        <div class="card-icon crgr">
+                                            <i class="fa fa-user-md fa-2x"></i>
+                                        </div>
+                                        <p class="card-category text-uppercase">Total Recovered</p>
+                                        <h3 class="card-title">
                                             {{totalRcv}}
-                                        <!-- <small> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 32 </small> -->
-                                    </h3>
+                                            <!-- <small> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 32 </small> -->
+                                        </h3>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="col-12 col-md-3">
-                            <div class="card crd card-stats">
-                                <div class="card-header crd-rd-hd crd-hd card-header-warning card-header-icon">
-                                    <div class="card-icon crrd">
-                                        <i class="fa fa-user-times fa-2x"></i>
-                                    </div>
-                                    <p class="card-category text-uppercase">Total Deaths</p>
-                                    <h3 class="card-title">
+            
+                            <div class="col-12 col-md-3">
+                                <div class="card crd card-stats">
+                                    <div class="card-header crd-rd-hd crd-hd card-header-warning card-header-icon">
+                                        <div class="card-icon crrd">
+                                            <i class="fa fa-user-times fa-2x"></i>
+                                        </div>
+                                        <p class="card-category text-uppercase">Total Deaths</p>
+                                        <h3 class="card-title">
                                             {{totalDth}}
-                                        <!-- <small> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 32 </small> -->
-                                    </h3>
+                                            <!-- <small> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 32 </small> -->
+                                        </h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+    </div>
+    <div class="row mx-auto w-100 mt-2 d-block d-md-none">
+            <div class="card w-100">
+                    <div class="card-header bg-secondary">
+                            <span class="lblTxt text-light">Search Country wise detailed data</span>
+                        </div>
+                <div class="card-body">
+                </div>
+            </div>
+        </div>
+    <div class="row mx-auto w-100 mt-2">
+        <div class="col-12 col-md-8">
+                <div class="card w-100 ">
+                        <div class="card-header bg-secondary">
+                                <span class="lblTxt text-light">Country wise detailed data</span>
+                            </div>
+                    <div class="card-body">
+                        <table class="table table-striped table-responsive">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase" scope="col">Country Name (Code)</th>
+                                    <th class="text-uppercase" scope="col">confirmed</th>
+                                    <th class="text-uppercase" scope="col">recovered</th>
+                                    <th class="text-uppercase" scope="col">deaths</th>
+                                    <th class="text-uppercase" scope="col">last Updated</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let cntry of countryArray">
+                                    <td>
+                                        <span>{{cntry.countryName}} ({{cntry.countryCode}})</span>
+                                    </td>
+                                    <td>
+                                        <span>{{cntry.confirmed}}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{cntry.recovered}}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{cntry.deaths}}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{cntry.dateAsOf}}</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
         </div>
     </div>
 </div>
