@@ -28,6 +28,10 @@ const routes: Routes = [
       {
         path: 'Service-Availablity',
         loadChildren: 'src/app/essential-mod/essential-mod.module#EssentialModModule'
+      },
+      {
+        path: 'World-Data',
+        loadChildren: 'src/app/world-data/world-data.module#WorldDataModule'
       }
     ]
   }

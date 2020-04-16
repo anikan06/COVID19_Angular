@@ -1,0 +1,68 @@
+<div class="container-fluid world-data-container w-100 py-3">
+    <div class="card">
+        <div class="card-header bg-secondary">
+            <span class="lblTxt text-light">World wide data as of {{lastUpdated}}</span>
+        </div>
+        <div class="card-body">
+                <div class="row mx-auto w-100  card-cstm-bdy">
+                        <div class="col-12 col-md-3">
+                            <div class="card crd card-stats">
+                                <div class="card-header crd-bl-hd crd-hd card-header-warning card-header-icon">
+                                    <div class="card-icon crbl">
+                                        <i class="fa fa-ambulance fa-2x"></i>
+                                    </div>
+                                    <p class="card-category text-uppercase">Total Cases</p>
+                                    <h3 class="card-title">
+                                        {{totalCnf}}
+                                        <small> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 32 </small>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3">
+                                <div class="card crd card-stats">
+                                    <div class="card-header crd-wr-hd crd-hd card-header-warning card-header-icon">
+                                        <div class="card-icon crwrning">
+                                            <i class="fa fa-h-square fa-2x"></i>
+                                        </div>
+                                        <p class="card-category text-uppercase">Total Active</p>
+                                        <h3 class="card-title">
+                                                {{totalAct}}
+                                            <small> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 32 </small>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="col-12 col-md-3">
+                            <div class="card crd card-stats">
+                                <div class="card-header crd-gr-hd crd-hd card-header-warning card-header-icon">
+                                    <div class="card-icon crgr">
+                                        <i class="fa fa-user-md fa-2x"></i>
+                                    </div>
+                                    <p class="card-category text-uppercase">Total Recovered</p>
+                                    <h3 class="card-title">
+                                            {{totalRcv}}
+                                        <small> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 32 </small>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-md-3">
+                            <div class="card crd card-stats">
+                                <div class="card-header crd-rd-hd crd-hd card-header-warning card-header-icon">
+                                    <div class="card-icon crrd">
+                                        <i class="fa fa-user-times fa-2x"></i>
+                                    </div>
+                                    <p class="card-category text-uppercase">Total Deaths</p>
+                                    <h3 class="card-title">
+                                            {{totalDth}}
+                                        <small> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 32 </small>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>
