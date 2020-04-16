@@ -187,7 +187,7 @@ export class ClusterComponentComponent implements OnInit {
       tempObj = _.last(this.newStateTestData);
       let prevTempObj = new TestData();
       prevTempObj = _.nth(this.newStateTestData, -2);
-      let todayDt = (moment(new Date()).format('DD/MM/YYYY'));
+      const todayDt = (moment(new Date()).format('DD/MM/YYYY'));
       console.log(prevTempObj);
 
       if (tempObj.totaltested !== '') {
@@ -196,10 +196,10 @@ export class ClusterComponentComponent implements OnInit {
         this.unconfirmed = tempObj.unconfirmed;
         this.negative = tempObj.negative;
         this.updatedOn = tempObj.updatedon;
-        this.agoUpdatedOn =moment(moment(tempObj.updatedon, 'DD/MM/YYYY').format('ll')).fromNow();
+        this.agoUpdatedOn = moment(moment(tempObj.updatedon, 'DD/MM/YYYY').format('ll')).fromNow();
       }
 
-      if (tempObj.totaltested === ''){
+      if (tempObj.totaltested === '') {
         this.totaltested = prevTempObj.totaltested;
         this.positive = prevTempObj.positive;
         this.unconfirmed = prevTempObj.unconfirmed;
