@@ -170,6 +170,7 @@ export class ClusterComponentComponent implements OnInit {
 
     this.lArr = _.filter(this.allData.statewise, ['state', tempVal]);
     this.nwAr.push(resData);
+    console.log(this.nwAr);
     this.srchCnf = this.lArr[0].confirmed;
     this.srchDt = this.lArr[0].deaths;
     this.srchAct = this.lArr[0].active;
