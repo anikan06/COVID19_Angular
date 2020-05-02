@@ -153,71 +153,71 @@ export class ClusterComponentComponent implements OnInit {
     });
   }
 
-  onKeySearch(value: any) {
-    this.swtchView = false;
-    this.nwAr = [];
-    this.lArr = [];
-    this.btnhd = true;
-    let resData = {};
-    this.clrSrch = true;
-    const tempVal = this.titlecasePipe.transform(value);
-    this.stateDetailedList.forEach(element => {
-      if (tempVal === element.name) {
-        resData = JSON.parse(JSON.stringify(element));
+  // onKeySearch(value: any) {
+  //   this.swtchView = false;
+  //   this.nwAr = [];
+  //   this.lArr = [];
+  //   this.btnhd = true;
+  //   let resData = {};
+  //   this.clrSrch = true;
+  //   const tempVal = this.titlecasePipe.transform(value);
+  //   this.stateDetailedList.forEach(element => {
+  //     if (tempVal === element.name) {
+  //       resData = JSON.parse(JSON.stringify(element));
 
-      }
-    });
+  //     }
+  //   });
 
-    this.lArr = _.filter(this.allData.statewise, ['state', tempVal]);
-    this.nwAr.push(resData);
-    console.log(this.nwAr);
-    this.srchCnf = this.lArr[0].confirmed;
-    this.srchDt = this.lArr[0].deaths;
-    this.srchAct = this.lArr[0].active;
-    this.srchRcv = this.lArr[0].recovered;
+  //   this.lArr = _.filter(this.allData.statewise, ['state', tempVal]);
+  //   this.nwAr.push(resData);
+  //   console.log(this.nwAr);
+  //   this.srchCnf = this.lArr[0].confirmed;
+  //   this.srchDt = this.lArr[0].deaths;
+  //   this.srchAct = this.lArr[0].active;
+  //   this.srchRcv = this.lArr[0].recovered;
 
-    this.http.get(this.testUrl).subscribe(res => {
-      this.newDt = res;
-      let td: Array<TestData> = [];
-      td = this.newDt.states_tested_data;
-      console.log(td);
-      this.newStateTestData = [];
-      this.newStateTestData = _.filter(td, ['state', tempVal]);
-      console.log(this.newStateTestData);
-      let tempObj = new TestData();
-      tempObj = _.last(this.newStateTestData);
-      let prevTempObj = new TestData();
-      prevTempObj = _.nth(this.newStateTestData, -2);
-      const todayDt = (moment(new Date()).format('DD/MM/YYYY'));
-      console.log(prevTempObj);
+  //   this.http.get(this.testUrl).subscribe(res => {
+  //     this.newDt = res;
+  //     let td: Array<TestData> = [];
+  //     td = this.newDt.states_tested_data;
+  //     console.log(td);
+  //     this.newStateTestData = [];
+  //     this.newStateTestData = _.filter(td, ['state', tempVal]);
+  //     console.log(this.newStateTestData);
+  //     let tempObj = new TestData();
+  //     tempObj = _.last(this.newStateTestData);
+  //     let prevTempObj = new TestData();
+  //     prevTempObj = _.nth(this.newStateTestData, -2);
+  //     const todayDt = (moment(new Date()).format('DD/MM/YYYY'));
+  //     console.log(prevTempObj);
 
-      if (tempObj.totaltested !== '') {
-        this.totaltested = tempObj.totaltested;
-        this.positive = tempObj.positive;
-        this.unconfirmed = tempObj.unconfirmed;
-        this.negative = tempObj.negative;
-        this.updatedOn = tempObj.updatedon;
-        this.agoUpdatedOn = moment(moment(tempObj.updatedon, 'DD/MM/YYYY').format('ll')).fromNow();
-      }
+  //     if (tempObj.totaltested !== '') {
+  //       this.totaltested = tempObj.totaltested;
+  //       this.positive = tempObj.positive;
+  //       this.unconfirmed = tempObj.unconfirmed;
+  //       this.negative = tempObj.negative;
+  //       this.updatedOn = tempObj.updatedon;
+  //       this.agoUpdatedOn = moment(moment(tempObj.updatedon, 'DD/MM/YYYY').format('ll')).fromNow();
+  //     }
 
-      if (tempObj.totaltested === '') {
-        this.totaltested = prevTempObj.totaltested;
-        this.positive = prevTempObj.positive;
-        this.unconfirmed = prevTempObj.unconfirmed;
-        this.negative = prevTempObj.negative;
-        this.updatedOn = prevTempObj.updatedon;
-      }
+  //     if (tempObj.totaltested === '') {
+  //       this.totaltested = prevTempObj.totaltested;
+  //       this.positive = prevTempObj.positive;
+  //       this.unconfirmed = prevTempObj.unconfirmed;
+  //       this.negative = prevTempObj.negative;
+  //       this.updatedOn = prevTempObj.updatedon;
+  //     }
 
-    });
-
-
-  }
+  //   });
 
 
-  clearSearch() {
-    this.btnhd = false;
-    this.getStateList();
-    this.searchState.nativeElement.value = '';
-  }
+  // }
+
+
+  // clearSearch() {
+  //   this.btnhd = false;
+  //   this.getStateList();
+  //   this.searchState.nativeElement.value = '';
+  // }
 
 }

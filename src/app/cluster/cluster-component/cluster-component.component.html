@@ -250,7 +250,8 @@
   </div>
 
   <div class="row mx-auto w-100 my-2">
-    <div class="card w-100">
+      <app-state-search class="w-100"></app-state-search>
+    <!-- <div class="card w-100">
       <div class="card-header bg-secondary">
         <label class="text-light">Search State </label>
         <div class="input-group">
@@ -334,12 +335,6 @@
           </div>
         </div>
 
-        <!-- <div class="row mx-auto w-100 my-2">
-          <div class="row mx-auto d-flex justify-content-center">
-            <span class="text-info">Tested data last updated on {{updatedOn}} </span>
-          </div>
-        </div> -->
-
         <div class="row mx-auto w-100 my-2">
           <div class="col-12 col-sm-6 col-md-3 py-3" *ngFor="let stateWise of nwAr;let i=index">
             <div class="card">
@@ -380,10 +375,15 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
   <div class="row mx-auto w-100 my-2" *ngIf = 'swtchView'>
+    <div class="card w-100">
+      <div class="card-header bg-secondary">
+        <span class="text-light">All District Data</span>
+      </div>
+    </div>
     <div class="col-12 col-sm-6 col-md-3 py-3" *ngFor="let stateWise of stateDetailedList;let i=index">
       <div class="card">
         <div class="card-header bg-secondary text-white">

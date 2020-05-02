@@ -5,6 +5,7 @@ import { ClusterRoutingModule } from './cluster-routing.module';
 import { ClusterComponentComponent } from './cluster-component/cluster-component.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { TitleCasePipe } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { TitleCasePipe } from '@angular/common';
   imports: [
     CommonModule,
     ClusterRoutingModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    SharedModule
   ],
   providers: [
     TitleCasePipe

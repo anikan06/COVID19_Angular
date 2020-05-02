@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, TitleCasePipe } from '@angular/common';
 import { NoCommaPipe } from './pipes/no-comma.pipe';
+import { StateSearchComponent } from './components/state-search/state-search.component';
 
 
 
 @NgModule({
-  declarations: [NoCommaPipe],
+  declarations: [NoCommaPipe, StateSearchComponent],
   imports: [
     CommonModule
   ],
-  exports: [NoCommaPipe]
+  providers: [
+    TitleCasePipe
+  ],
+  exports: [NoCommaPipe, StateSearchComponent]
 })
 export class SharedModule { }

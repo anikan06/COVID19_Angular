@@ -15,6 +15,7 @@ import 'moment/locale/pt-br';
 })
 export class DashComponent implements OnInit {
   allListURL = 'https://api.covid19india.org/data.json';
+  testingApi = "https://api.covid19india.org/data.json";
   allData: any;
   dataArray: [];
   totalConfirmed: string;
@@ -278,4 +279,10 @@ export class DashComponent implements OnInit {
     }
 
   }
+
+  // getTestingData() {
+  //   this.http.get(this.testingApi).subscribe(re => {
+  //     console.log(re);
+  //   })
+  // }
 }

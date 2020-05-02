@@ -7,6 +7,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LogComponent } from './log/log.component';
 import { DatePipe } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { DatePipe } from '@angular/common';
     CommonModule,
     DashboardRoutingModule,
     AngularFontAwesomeModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    SharedModule
   ],
   providers: [
     DatePipe
