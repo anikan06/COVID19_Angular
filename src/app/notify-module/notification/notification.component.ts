@@ -22,18 +22,30 @@ export class NotificationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getNotification();
+    this.getNotification('init');
     this.spinner.show();
 
   }
 
-  getNotification() {
+  getNotification(vl: any) {
     this.http.get<Notify>(this.notifyUrl).subscribe(res => {
       if (res.success === true) {
         let tempArr = new Notifications();
         tempArr = res.data;
         const dtArr = tempArr.notifications;
-        this.notifyArray = _.reverse(dtArr);
+        if (vl === 'init') {
+          this.notifyArray = [];
+          this.notifyArray = _.reverse(_.slice(dtArr, [dtArr.length - 10], [dtArr.length]));
+          console.log(this.notifyArray);
+        }
+        if (vl === 'loadmore') {
+          this.notifyArray = [];
+          this.notifyArray = _.reverse(dtArr);
+          console.log(this.notifyArray);
+        }
+        // this.notifyArray = _.reverse(dtArr);
+        
+        // _.reverse(_.slice(this.newLogArr, [this.newLogArr.length - 10], [this.newLogArr.length]))
         this.spinner.hide();
       } else {
         this.spinner.hide();
