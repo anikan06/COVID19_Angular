@@ -1,0 +1,25 @@
+<div class="container-fluid cluster-container w-100 px-0">
+    <ngx-spinner></ngx-spinner>
+
+    <div class="row mx-auto">
+        <div class="card border-0">
+            <div class="card-header bg-dark border-1">
+                <span class="nt-Txt text-light">
+                    <i class="fa fa-bell" aria-hidden="true"></i> UPDATES & NOTIFICATIONS
+                </span>
+            </div>
+            <div class="card-body px-0 py-0 border-0">
+                <div class="row mx-auto w-100" *ngFor="let notify of notifyArray">
+                    <a class="clickable w-100 my-2" [href]="notify.link" target="_blank">
+                        <div class="card w-100 border-left-0 border-right-0">
+                            <div class="card-body bg-info">
+                                <i class="fa fa-eercast text-light"></i> &nbsp;
+                                <span class="text-light" [innerHTML]="notify.title"></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

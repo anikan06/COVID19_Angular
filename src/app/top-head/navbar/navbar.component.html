@@ -51,9 +51,9 @@
          </ul>
     </div> -->
 </nav>
-<nav class="navbar navbar-light d-block d-sm-block d-md-none bg-light">
-  <div class="row mx-auto navStyle w-100">
-    <div class="col-2 d-flex justify-content-center pr-0">
+<nav class="navbar navbar-light d-block d-sm-block d-md-none bg-white">
+  <div class="row mx-auto navStyle w-100 d-flex justify-content-center">
+    <div class="col-2 d-flex justify-content-center p-0">
       <img class="img-fluid nav-img" src="./assets/images/corona.png">
     </div>
     <div class="col-8 px-0 py-2">
@@ -61,19 +61,54 @@
     </div>
   </div>
 </nav>
-<div class="navbar d-block d-sm-block px-0 pb-0 d-md-none navbar-light bg-light">
+<div class="navbar d-block d-sm-block px-0 py-0 pb-0 d-md-none navbar-light my-1 bg-light">
     <ul class="nav nav-pills nav-fill">
       <li class="nav-item px-0">
-        <a class="nav-link" routerLink='Dashboard' routerLinkActive="act">Dashboard</a>
+        <a class="nav-link bb-1" routerLink='Dashboard' routerLinkActive="act">
+          <!-- Dashboard -->
+          <i class="fa fa-tachometer" aria-hidden="true"></i>
+        </a>
       </li>
       <li class="nav-item px-0">
-        <a class="nav-link" routerLink="Clusters" routerLinkActive="act">Cluster</a>
+        <a class="nav-link bb-1" routerLink="Clusters" routerLinkActive="act">
+          <!-- Cluster -->
+          <i class="fa fa-map-o" aria-hidden="true"></i>
+        </a>
       </li>
       <li class="nav-item px-0">
-        <a class="nav-link" routerLink="Service-Availablity" routerLinkActive="act">Service's</a>
+        <a class="nav-link bb-1" routerLink="Service-Availablity" routerLinkActive="act">
+          <!-- Service's -->
+          <i class="fa fa-gears" aria-hidden="true"></i>
+        </a>
       </li>
       <li class="nav-item px-0">
-        <a class="nav-link" routerLink="World-Data" routerLinkActive="act">World Data</a>
+        <a class="nav-link bb-1" routerLink="World-Data" routerLinkActive="act">
+          <!-- World Data -->
+          <i class="fa fa-globe" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li class="nav-item px-0">
+        <a class="nav-link bb-1" routerLink="notification" routerLinkActive="act">
+          <!-- Notification -->
+          <i class="fa fa-bell" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li class="nav-item px-0">
+        <a class="nav-link bb-1" routerLink="Help/Helpfull-Links" routerLinkActive="act">
+          <!-- Help/FAQ -->
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
       </li>
     </ul>
 </div>
+
+<!-- <ng-template #popContent>
+  <ul class="list-group">
+  <li class="list-group-item">Cras justo odio</li>
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item">Morbi leo risus</li>
+  <li class="list-group-item">Porta ac consectetur ac</li>
+  <li class="list-group-item">Vestibulum at eros</li>
+</ul>
+</ng-template>
+<ng-template #popTitle>Fancy <b>content!!</b></ng-template>  -->

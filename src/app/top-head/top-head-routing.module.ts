@@ -32,6 +32,10 @@ const routes: Routes = [
       {
         path: 'World-Data',
         loadChildren: 'src/app/world-data/world-data.module#WorldDataModule'
+      },
+      {
+        path: 'notification',
+        loadChildren: 'src/app/notify-module/notify-module.module#NotifyModuleModule'
       }
     ]
   }

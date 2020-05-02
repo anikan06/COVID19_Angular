@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  baseNotiUrl = 'https://api.rootnet.in/covid19-in/notifications';
+  trimedArr = [];
+  fullArr = [];
+  constructor(
+
+  ) { }
 
   ngOnInit() {
   }
