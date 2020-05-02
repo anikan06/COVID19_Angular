@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Notify, Notifications, NotifyData } from './notification.model';
 import * as _ from 'lodash';
@@ -8,7 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-notification',
   templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.scss']
+  styleUrls: ['./notification.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationComponent implements OnInit {
 
