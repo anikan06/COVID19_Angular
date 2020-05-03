@@ -15,6 +15,7 @@ export class NotificationComponent implements OnInit {
 
   notifyUrl = 'https://api.rootnet.in/covid19-in/notifications';
   notifyArray = [];
+  ldMr: boolean;
 
   constructor(
     private http: HttpClient,
@@ -35,11 +36,13 @@ export class NotificationComponent implements OnInit {
         tempArr = res.data;
         const dtArr = tempArr.notifications;
         if (vl === 'init') {
+          this.ldMr = false;
           this.notifyArray = [];
           this.notifyArray = _.reverse(_.slice(dtArr, [dtArr.length - 10], [dtArr.length]));
           console.log(this.notifyArray);
         }
         if (vl === 'loadmore') {
+          this.ldMr = true;
           this.notifyArray = [];
           this.notifyArray = _.reverse(dtArr);
           console.log(this.notifyArray);

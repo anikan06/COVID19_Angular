@@ -22,7 +22,7 @@
             </div>
             <div class="card-footer">
                 <div class="row mx-auto d-flex justify-content-center">
-                    <button type="button" class="btn btn-outline-primary btn-sm" (click)="getNotification('loadmore')">Load More..</button>
+                    <button type="button" class="btn btn-outline-primary btn-sm" [disabled]="ldMr" (click)="getNotification('loadmore')">Load More..</button>
                 </div>
             </div>
         </div>
