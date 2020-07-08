@@ -9,6 +9,9 @@ import * as moment from 'moment';
 import { TitleCasePipe } from '@angular/common';
 import 'moment/locale/pt-br';
 import { TestData, StateTestData } from 'src/app/cluster/tests.model';
+import { ChartType } from 'chart.js';
+import { MultiDataSet, Label } from 'ng2-charts';
+import { StateDetailsFil } from './state-search.modal';
 
 @Component({
   selector: 'app-state-search',
@@ -26,8 +29,10 @@ export class StateSearchComponent implements OnInit {
   updatedOn: any;
   agoUpdatedOn: any;
   swtchView: boolean;
-  nwAr: any[];
+  nwAr: Array<StateDetailsFil> = [];
   lArr: any[];
+  labelArr = [];
+  valueArr = [];
   btnhd: boolean;
   clrSrch: boolean;
   srchCnf: any;
@@ -44,6 +49,9 @@ export class StateSearchComponent implements OnInit {
   allData: any;
   interval;
 
+  
+
+
   constructor(
     private http: HttpClient,
     private spinner: NgxSpinnerService,
@@ -59,6 +67,16 @@ export class StateSearchComponent implements OnInit {
     this.interval = setInterval(() => {
       this.getAllList('refresh');
     }, 300000);
+  }
+
+  //chart
+
+  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+    console.log(event, active);
+  }
+
+  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
+    console.log(event, active);
   }
 
   getAllList(data: any) {
@@ -109,19 +127,31 @@ export class StateSearchComponent implements OnInit {
     this.swtchView = false;
     this.nwAr = [];
     this.lArr = [];
+    // this.valueArr = [];
+    // this.labelArr = [];
     this.btnhd = true;
-    let resData = {};
+    let resData = new StateDetailsFil();
     this.clrSrch = true;
     const tempVal = this.titlecasePipe.transform(value);
     this.stateDetailedList.forEach(element => {
       if (tempVal === element.name) {
         resData = JSON.parse(JSON.stringify(element));
-
       }
     });
 
     this.lArr = _.filter(this.allData.statewise, ['state', tempVal]);
     this.nwAr.push(resData);
+    this.nwAr.forEach(ele => {
+      ele.details.forEach(el => {
+        this.labelArr.push(el.name);
+        this.valueArr.push(el.details.active);
+      })
+      console.log(this.labelArr);
+      console.log(this.valueArr);
+    })
+
+
+
     this.srchCnf = this.lArr[0].confirmed;
     this.srchDt = this.lArr[0].deaths;
     this.srchAct = this.lArr[0].active;
@@ -160,5 +190,9 @@ export class StateSearchComponent implements OnInit {
 
 
   }
+
+  public doughnutChartLabels: Label[] = this.labelArr;
+  public doughnutChartData: MultiDataSet = this.valueArr;
+  public doughnutChartType: ChartType = 'doughnut';
 
 }
