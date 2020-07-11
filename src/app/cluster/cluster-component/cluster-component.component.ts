@@ -9,6 +9,7 @@ import * as moment from 'moment';
 import { TitleCasePipe } from '@angular/common';
 import 'moment/locale/pt-br';
 import { TestData, StateTestData } from '../tests.model';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 
 @Component({
@@ -60,15 +61,27 @@ export class ClusterComponentComponent implements OnInit {
   updatedOn: string;
   btnhd = false;
   agoUpdatedOn: string;
+  url;
 
 
   constructor(
     private http: HttpClient,
     private spinner: NgxSpinnerService,
     private toastr: ToastrService,
-    private titlecasePipe: TitleCasePipe
+    private titlecasePipe: TitleCasePipe,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
     moment.locale('en');
+    // this.url = this.router.url;
+    console.log(this.router.url);
+    this.router.events.subscribe((eve => {
+      if (eve instanceof NavigationEnd) {
+        this.url = eve.url;
+        console.log(this.url);
+        console.log(activatedRoute.snapshot);
+      }
+    }))
   }
 
   ngOnInit() {

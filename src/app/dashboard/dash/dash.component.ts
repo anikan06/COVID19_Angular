@@ -46,6 +46,23 @@ export class DashComponent implements OnInit {
   arraySort = [];
   searchValue = '';
 
+  tempVal = [
+    {
+      id: 123
+    },
+    {
+      id: 3
+    },
+    {
+      id: 123
+    },
+    {
+      id: 3
+    }
+  ];
+  thy = [];
+  tstDt;
+
   @ViewChild('searchValue', { static: false }) input: ElementRef;
 
   resData: any;
@@ -60,7 +77,8 @@ export class DashComponent implements OnInit {
   nextBtnDisabled = true;
   prevBtnDisabled = false;
   interval;
-  livePatientUrl = 'https://api.rootnet.in/covid19-in/unofficial/covid19india.org';
+  livePatientUrl = 'https://api.covid19india.org/raw_data6.json';
+  // livePatientUrl = 'https://api.rootnet.in/covid19-in/unofficial/covid19india.org';
 
   // now = moment().startOf('hour').fromNow();
 
@@ -77,13 +95,30 @@ export class DashComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show();
+    console.log(this.tempVal);
+    this.getTest();
+
+
+
     this.getAllList('normal');
     this.interval = setInterval(() => {
       this.getAllList('refresh');
     }, 300000);
   }
 
+  getTest() {
+    this.tstDt = _.forEach(this.tempVal, function(v, k) {
+      console.log(v.id);
+      this.thy.push(v.id);
+    });
 
+    this.tempVal.forEach(res => {
+      console.log(res.id);
+      this.thy.push(res.id);
+      
+    });
+    console.log(this.thy.toString());
+  }
 
   getAllList(data: any) {
     // this.spinner.show();
