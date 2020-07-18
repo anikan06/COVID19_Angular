@@ -96,7 +96,7 @@ export class DashComponent implements OnInit {
   ngOnInit() {
     this.spinner.show();
     console.log(this.tempVal);
-    this.getTest();
+    // this.getTest();
 
 
 
@@ -106,19 +106,19 @@ export class DashComponent implements OnInit {
     }, 300000);
   }
 
-  getTest() {
-    this.tstDt = _.forEach(this.tempVal, function(v, k) {
-      console.log(v.id);
-      this.thy.push(v.id);
-    });
+  // getTest() {
+  //   this.tstDt = _.forEach(this.tempVal, function(v, k) {
+  //     console.log(v.id);
+  //     this.thy.push(v.id);
+  //   });
 
-    this.tempVal.forEach(res => {
-      console.log(res.id);
-      this.thy.push(res.id);
+  //   this.tempVal.forEach(res => {
+  //     console.log(res.id);
+  //     this.thy.push(res.id);
       
-    });
-    console.log(this.thy.toString());
-  }
+  //   });
+  //   console.log(this.thy.toString());
+  // }
 
   getAllList(data: any) {
     // this.spinner.show();
